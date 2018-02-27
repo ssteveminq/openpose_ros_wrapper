@@ -1,0 +1,184 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AddPoint	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^geometry_msgs::Point AddPoint(const openpose_ros_msgs::BodypartDetection_3d bodypart){$/;"	f
+Average	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^double Average(std::vector<double> v)$/;"	f
+MODEL_POSE	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	71;"	d	file:
+MyPublisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^MyPublisher::MyPublisher(void)$/;"	f	class:MyPublisher
+MyPublisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class MyPublisher$/;"	c	file:
+MyPublisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^MyPublisher::MyPublisher(void)$/;"	f	class:MyPublisher
+MyPublisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class MyPublisher$/;"	c	file:
+MySyncPolicy	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2, sensor_msgs::Image> MySyncPolicy;$/;"	t	file:
+NET_RES_X	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	63;"	d	file:
+NET_RES_Y	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	64;"	d	file:
+OUTPUT_RES_X	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	67;"	d	file:
+OUTPUT_RES_Y	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	68;"	d	file:
+PointISValid	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^bool PointISValid(const openpose_ros_msgs::BodypartDetection_3d bodypart){$/;"	f
+RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        RosImgSub(const std::string& image_topic): it_(nh_)$/;"	f	class:RosImgSub
+RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^class RosImgSub$/;"	c	file:
+SubscribeAndPublish	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  SubscribeAndPublish()$/;"	f	class:SubscribeAndPublish
+SubscribeAndPublish	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^class SubscribeAndPublish$/;"	c	file:
+UserDatum	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
+UserDatum	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
+UserDatum	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
+UserDatum	openpose_wrapper/src/openpose_wrapper_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
+WUserInput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
+WUserInput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserInput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
+WUserInput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserOutput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserOutput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
+WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
+WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+_count	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int _count = 0;$/;"	v
+_count	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int _count = 0;$/;"	v
+bodypartsmap	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
+boolThatUserNeedsForSomeReason	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
+boolThatUserNeedsForSomeReason	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
+buf_mutex	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+buf_mutex	openpose_wrapper/src/openpose_wrapper_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+buff_empty	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^bool buff_empty = true;$/;"	v
+buff_empty	openpose_wrapper/src/openpose_wrapper_node.cpp	/^bool buff_empty = true;$/;"	v
+callback	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
+callback	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^void callback(const sensor_msgs::Image &img)$/;"	f
+callback	openpose_wrapper/src/openpose_wrapper_node.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
+callback	openpose_wrapper/src/openpose_wrapper_node.cpp	/^void callback(const sensor_msgs::Image &img)$/;"	f
+callback	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^void callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg, const sensor_msgs::ImageConstPtr& image_msg){$/;"	f
+callback	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  void callback(const openpose_ros_msgs::PersonDetection_3d& person_msg)$/;"	f	class:SubscribeAndPublish
+client	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::ServiceClient client;$/;"	v
+convertImage	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        void convertImage(const sensor_msgs::ImageConstPtr& msg)$/;"	f	class:RosImgSub
+cvMatToOpInput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
+cvMatToOpInput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
+cvMatToOpOutput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
+cvMatToOpOutput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
+cv_img_ptr_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        cv_bridge::CvImagePtr cv_img_ptr_;$/;"	m	class:RosImgSub	file:
+cv_ptr	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
+cv_ptr	openpose_wrapper/src/openpose_wrapper_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
+detectPosesCallback	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^bool detectPosesCallback(openpose_ros_msgs::GetPersons::Request& req, openpose_ros_msgs::GetPersons::Response& res)$/;"	f
+detectPosesCallback	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^bool detectPosesCallback(openpose_ros_msgs::GetPersons::Request& req, openpose_ros_msgs::GetPersons::Response& res)$/;"	f
+eye_msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
+eye_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher eye_pub;$/;"	m	class:MyPublisher	file:
+faceDetector	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
+faceDetector	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
+faceExtractor	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
+faceExtractor	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
+faceRenderer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
+faceRenderer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
+g_bodypart_map	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^std::map<unsigned int, std::string> g_bodypart_map;$/;"	v
+g_bodypart_map	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^std::map<unsigned int, std::string> g_bodypart_map;$/;"	v
+g_net_input_size	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^op::Point<int> g_net_input_size;$/;"	v
+g_net_input_size	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^op::Point<int> g_net_input_size;$/;"	v
+g_num_scales	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^int g_num_scales;$/;"	v
+g_num_scales	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^int g_num_scales;$/;"	v
+g_pose_extractor	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^std::shared_ptr<op::PoseExtractor> g_pose_extractor;$/;"	v
+g_pose_extractor	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^std::shared_ptr<op::PoseExtractor> g_pose_extractor;$/;"	v
+g_scale_gap	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^double g_scale_gap;$/;"	v
+g_scale_gap	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^double g_scale_gap;$/;"	v
+get3dcoordinates	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection_3d get3dcoordinates(const openpose_ros_msgs::BodypartDetection bodypart_2d , const pcl::PointCloud<pcl::PointXYZ>::Ptr  temp_cloud, const double maxx, const double minx, const double maxy, const double miny, const double maxz, const double minz, const std::string bodypart_name)$/;"	f
+getBodyPartDetectionFromArrayAndIndex	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
+getBodyPartDetectionFromArrayAndIndex	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
+getBodyPartDetectionFromArrayAndIndex	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
+getBodyPartMapFromPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^std::map<unsigned int, std::string> getBodyPartMapFromPoseModel(const op::PoseModel& pose_model)$/;"	f
+getBodyPartMapFromPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^std::map<unsigned int, std::string> getBodyPartMapFromPoseModel(const op::PoseModel& pose_model)$/;"	f
+getCvImagePtr	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        cv_bridge::CvImagePtr& getCvImagePtr()$/;"	f	class:RosImgSub
+getNANBodypart	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
+getNANBodypart	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
+getNANBodypart	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
+getNANBodypart	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection_3d getNANBodypart()$/;"	f
+getParam	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^T getParam(const ros::NodeHandle& nh, const std::string& param_name, T default_value)$/;"	f
+getParam	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^T getParam(const ros::NodeHandle& nh, const std::string& param_name, T default_value)$/;"	f
+getParamK	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^K getParamK(const ros::NodeHandle& nh, const std::string& param_name, K default_value)$/;"	f
+getParamK	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^K getParamK(const ros::NodeHandle& nh, const std::string& param_name, K default_value)$/;"	f
+gflagToDetectionMode	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::DetectionMode gflagToDetectionMode(const int handDetectionModeFlag, const std::shared_ptr<op::Producer>& producer = nullptr)$/;"	f
+gflagToHeatMaps	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^std::vector<op::HeatMapType> gflagToHeatMaps(const bool heatMapsAddParts, const bool heatMapsAddBkg, const bool heatMapsAddPAFs)$/;"	f
+gflagToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::PoseModel gflagToPoseModel(const std::string& poseModeString)$/;"	f
+gflagToRenderMode	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::RenderMode gflagToRenderMode(const int renderFlag, const int renderPoseFlag = -2)$/;"	f
+gflagToScaleMode	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::ScaleMode gflagToScaleMode(const int keypointScale)$/;"	f
+gflagsToOpParameters	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^           std::vector<op::HeatMapType>> gflagsToOpParameters()$/;"	f
+gflagsToProducer	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^std::shared_ptr<op::Producer> gflagsToProducer(const std::string& imageDirectory, const std::string& videoPath, const int webcamIndex,$/;"	f
+gflagsToProducerType	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::ProducerType gflagsToProducerType(const std::string& imageDirectory, const std::string& videoPath, const int webcamIndex)$/;"	f
+height	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	30;"	d	file:
+image_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher           image_pub;   $/;"	v
+image_skeleton_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
+image_skeleton_pub	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
+image_skeleton_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^ros::Publisher           image_skeleton_pub;$/;"	v
+image_skeleton_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^ros::Publisher           image_skeleton_pub;$/;"	v
+image_sub_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        image_transport::Subscriber image_sub_;$/;"	m	class:RosImgSub	file:
+index	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
+index	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
+initializationOnThread	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
+initializationOnThread	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
+initializationOnThread	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
+initializationOnThread	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
+initializationOnThread	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
+initializationOnThread	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
+it_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        image_transport::ImageTransport it_;$/;"	m	class:RosImgSub	file:
+keypoints_3d_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher	         keypoints_3d_pub;$/;"	v
+keypoints_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
+keypoints_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^ros::Publisher           keypoints_pub;$/;"	v
+keypoints_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^ros::Publisher           keypoints_pub;$/;"	v
+mCounter	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
+mCounter	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
+mImageFiles	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
+mImageFiles	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
+main	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^int main(int argc, char** argv)$/;"	f
+main	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^int main(int argc, char** argv)$/;"	f
+main	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^int main(int argc, char** argv)$/;"	f
+main	references/openpose_ros/openpose_ros_pkg/src/test_openpose_ros_service_call.cpp	/^int main(int argc, char** argv){$/;"	f
+main	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^int main(int argc, char** argv){$/;"	f
+main	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^int main(int argc, char **argv)$/;"	f
+marker_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::Publisher marker_pub;$/;"	m	class:SubscribeAndPublish	file:
+marker_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^ros::Publisher   marker_pub;$/;"	v
+model_folder_location	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^std::string model_folder_location = package_path + "\/..\/openpose\/models\/";$/;"	v
+mp	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^MyPublisher mp;$/;"	v
+mp	openpose_wrapper/src/openpose_wrapper_node.cpp	/^MyPublisher mp;$/;"	v
+msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
+msg	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
+n_	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::NodeHandle n_; $/;"	m	class:SubscribeAndPublish	file:
+nh_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        ros::NodeHandle nh_;$/;"	m	class:RosImgSub	file:
+notDetectedBodyPart	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^void notDetectedBodyPart(std::string bodypart_name)$/;"	f
+opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
+opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
+opRealTimePoseDemo	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^int opRealTimePoseDemo()$/;"	f
+openPoseROSTutorial	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^int openPoseROSTutorial()$/;"	f
+openPoseTutorialWrapper2	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
+openPoseTutorialWrapper2	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
+out_msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
+out_msg	openpose_wrapper/src/openpose_wrapper_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
+output_size	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^op::Point<int> output_size;$/;"	v
+output_size	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^op::Point<int> output_size;$/;"	v
+package_path	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^std::string package_path = ros::package::getPath("openpose_ros_pkg");$/;"	v
+pc_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher           pc_pub;$/;"	v
+poseExtractorCaffe	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
+poseExtractorCaffe	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
+poseRenderer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
+poseRenderer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
+poseRenderer	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^std::shared_ptr<op::PoseRenderer> poseRenderer;$/;"	v
+poseRenderer	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^std::shared_ptr<op::PoseRenderer> poseRenderer;$/;"	v
+pose_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
+pose_pub	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
+publisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
+publisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
+skeleton_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::Publisher skeleton_pub;$/;"	m	class:SubscribeAndPublish	file:
+skeleton_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^ros::Publisher   skeleton_pub;$/;"	v
+srv	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^openpose_ros_msgs::GetPersons srv;$/;"	v
+stringToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^op::PoseModel stringToPoseModel(const std::string& pose_model_string)$/;"	f
+stringToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^op::PoseModel stringToPoseModel(const std::string& pose_model_string)$/;"	f
+stringToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^op::PoseModel stringToPoseModel(const std::string& pose_model_string)$/;"	f
+sub_	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::Subscriber sub_;$/;"	m	class:SubscribeAndPublish	file:
+width	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	29;"	d	file:
+work	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
+work	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
+workConsumer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
+workConsumer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
+workProducer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
+workProducer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
+~RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        ~RosImgSub(){}$/;"	f	class:RosImgSub
