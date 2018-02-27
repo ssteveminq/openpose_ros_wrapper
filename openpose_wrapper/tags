@@ -1,0 +1,94 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+MyPublisher	src/openpose_wrapper_3d_node.cpp	/^MyPublisher::MyPublisher(void)$/;"	f	class:MyPublisher
+MyPublisher	src/openpose_wrapper_3d_node.cpp	/^class MyPublisher$/;"	c	file:
+MyPublisher	src/openpose_wrapper_node.cpp	/^MyPublisher::MyPublisher(void)$/;"	f	class:MyPublisher
+MyPublisher	src/openpose_wrapper_node.cpp	/^class MyPublisher$/;"	c	file:
+UserDatum	src/openpose_wrapper_3d_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
+UserDatum	src/openpose_wrapper_3d_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
+UserDatum	src/openpose_wrapper_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
+UserDatum	src/openpose_wrapper_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
+WUserInput	src/openpose_wrapper_3d_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
+WUserInput	src/openpose_wrapper_3d_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserInput	src/openpose_wrapper_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
+WUserInput	src/openpose_wrapper_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserOutput	src/openpose_wrapper_3d_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserOutput	src/openpose_wrapper_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserPostProcessing	src/openpose_wrapper_3d_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
+WUserPostProcessing	src/openpose_wrapper_3d_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+WUserPostProcessing	src/openpose_wrapper_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
+WUserPostProcessing	src/openpose_wrapper_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
+_count	src/openpose_wrapper_3d_node.cpp	/^int _count = 0;$/;"	v
+_count	src/openpose_wrapper_node.cpp	/^int _count = 0;$/;"	v
+bodypartsmap	src/openpose_wrapper_3d_node.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
+boolThatUserNeedsForSomeReason	src/openpose_wrapper_3d_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
+boolThatUserNeedsForSomeReason	src/openpose_wrapper_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
+buf_mutex	src/openpose_wrapper_3d_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+buf_mutex	src/openpose_wrapper_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
+buff_empty	src/openpose_wrapper_3d_node.cpp	/^bool buff_empty = true;$/;"	v
+buff_empty	src/openpose_wrapper_node.cpp	/^bool buff_empty = true;$/;"	v
+callback	src/openpose_wrapper_3d_node.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
+callback	src/openpose_wrapper_3d_node.cpp	/^void callback(const sensor_msgs::Image &img)$/;"	f
+callback	src/openpose_wrapper_node.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
+callback	src/openpose_wrapper_node.cpp	/^void callback(const sensor_msgs::Image &img)$/;"	f
+cvMatToOpInput	src/openpose_wrapper_3d_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
+cvMatToOpInput	src/openpose_wrapper_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
+cvMatToOpOutput	src/openpose_wrapper_3d_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
+cvMatToOpOutput	src/openpose_wrapper_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
+cv_ptr	src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
+cv_ptr	src/openpose_wrapper_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
+eye_msg	src/openpose_wrapper_3d_node.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
+eye_pub	src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher eye_pub;$/;"	m	class:MyPublisher	file:
+faceDetector	src/openpose_wrapper_3d_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
+faceDetector	src/openpose_wrapper_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
+faceExtractor	src/openpose_wrapper_3d_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
+faceExtractor	src/openpose_wrapper_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
+faceRenderer	src/openpose_wrapper_3d_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
+faceRenderer	src/openpose_wrapper_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
+getBodyPartDetectionFromArrayAndIndex	src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
+getNANBodypart	src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
+image_skeleton_pub	src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
+image_skeleton_pub	src/openpose_wrapper_node.cpp	/^	ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
+index	src/openpose_wrapper_3d_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
+index	src/openpose_wrapper_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
+initializationOnThread	src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
+initializationOnThread	src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
+initializationOnThread	src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
+initializationOnThread	src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
+initializationOnThread	src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
+initializationOnThread	src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
+keypoints_pub	src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
+mCounter	src/openpose_wrapper_3d_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
+mCounter	src/openpose_wrapper_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
+mImageFiles	src/openpose_wrapper_3d_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
+mImageFiles	src/openpose_wrapper_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
+main	src/openpose_wrapper_3d_node.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	src/openpose_wrapper_node.cpp	/^int main(int argc, char *argv[])$/;"	f
+mp	src/openpose_wrapper_3d_node.cpp	/^MyPublisher mp;$/;"	v
+mp	src/openpose_wrapper_node.cpp	/^MyPublisher mp;$/;"	v
+msg	src/openpose_wrapper_3d_node.cpp	/^	std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
+msg	src/openpose_wrapper_node.cpp	/^	std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
+opOutputToCvMat	src/openpose_wrapper_3d_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
+opOutputToCvMat	src/openpose_wrapper_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
+openPoseTutorialWrapper2	src/openpose_wrapper_3d_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
+openPoseTutorialWrapper2	src/openpose_wrapper_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
+out_msg	src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
+out_msg	src/openpose_wrapper_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
+poseExtractorCaffe	src/openpose_wrapper_3d_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
+poseExtractorCaffe	src/openpose_wrapper_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
+poseRenderer	src/openpose_wrapper_3d_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
+poseRenderer	src/openpose_wrapper_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
+pose_pub	src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
+pose_pub	src/openpose_wrapper_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
+publisher	src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
+publisher	src/openpose_wrapper_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
+work	src/openpose_wrapper_3d_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
+work	src/openpose_wrapper_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
+workConsumer	src/openpose_wrapper_3d_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
+workConsumer	src/openpose_wrapper_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
+workProducer	src/openpose_wrapper_3d_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
+workProducer	src/openpose_wrapper_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
