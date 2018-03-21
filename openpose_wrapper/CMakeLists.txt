@@ -16,12 +16,16 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   openpose_ros_wrapper_msgs
   openpose_ros_msgs
+  pcl_ros
+  pcl_conversions
+  tf
 )
 
 find_package(GFlags REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenPose REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(PCL 1.7 REQUIRED)
 message(STATUS "EIGEN ${EIGEN3_INCLUDE_DIRS}")
 
 ## System dependencies are found with CMake's conventions
@@ -127,6 +131,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${PCL_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -161,6 +166,7 @@ target_link_libraries(${PROJECT_NAME}_node
   ${GFLAGS_LIBRARIES}
   ${OpenCV_LIBS}
   ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 target_link_libraries(${PROJECT_NAME}_3d_node
@@ -168,6 +174,7 @@ target_link_libraries(${PROJECT_NAME}_3d_node
   ${GFLAGS_LIBRARIES}
   ${OpenCV_LIBS}
   ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
 )
 
 #############

@@ -40,16 +40,9 @@
 #include <std_msgs/Float32MultiArray.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/PointCloud2.h>
-#include <geometry_msgs/Point.h>
-#include <geometry_msgs/PoseStamped.h>
-#include <tf/transform_listener.h>
-#include <tf/transform_broadcaster.h>
 #include <openpose_ros_wrapper_msgs/Persons.h>
-#include <openpose_ros_wrapper_msgs/Persons3d.h>
 #include <openpose_ros_wrapper_msgs/BodyPartDetection.h>
-#include <openpose_ros_wrapper_msgs/BodyPartDetection3d.h>
 #include <openpose_ros_wrapper_msgs/EyeDetection.h>
-#include <openpose_ros_wrapper_msgs/PersonDetection3d.h>
 #include <openpose_ros_wrapper_msgs/PersonDetection.h>
 #include <image_transport/image_transport.h>
 #include <openpose_ros_msgs/GetPersons.h>
@@ -57,10 +50,6 @@
 #include <pcl_ros/point_cloud.h>
 #include <pcl/point_types.h>
 #include <pcl/PCLPointCloud2.h>
-
-
-#define CAMERA_PIXEL_WIDTH 640
-#define CAMERA_PIXEL_HEIGHT 480
 
 //#include <openpose_ros_msgs/.h>
 
@@ -122,22 +111,15 @@ class MyPublisher
 	ros::Publisher publisher;
 	ros::Publisher image_skeleton_pub;
 	ros::Publisher pose_pub;
-	ros::Publisher pose_3d_pub;
 	ros::Publisher keypoints_pub;
 	ros::Publisher eye_pub;
 	ros::Subscriber pcl_sub;
 
-    openpose_ros_wrapper_msgs::Persons persons;
-    openpose_ros_wrapper_msgs::Persons3d persons_3d;
     //point_cloud   
-   
-    sensor_msgs::PointCloud2 pCloud;
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; 
-
     void cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg);
 
 	void callback(const op::Array<float>&);
-
 	std_msgs::Float32MultiArray msg;
     std::map<unsigned int, std::string> bodypartsmap;
 };
@@ -464,11 +446,11 @@ public:
                 //op::log("Face keypoints: " + datumsPtr->at(0).faceKeypoints.toString());
 
                 const auto& faceKeypoints = datumsPtr->at(0).faceKeypoints;
-                //op::log("Person face keypoints:");
+                op::log("Person face keypoints:");
 
                 for (auto face = 0 ; face < faceKeypoints.getSize(0) ; face++)
                 {
-                    //op::log("face " + std::to_string(face) + " (x, y, score):");
+                    op::log("face " + std::to_string(face) + " (x, y, score):");
                     for (auto bodyPart = 0 ; bodyPart < faceKeypoints.getSize(1) ; bodyPart++)
                     {
 
@@ -478,7 +460,7 @@ public:
                             {
                                 valueToPrint += std::to_string(faceKeypoints[{face, bodyPart, xyscore}]   ) + " ";
                             }
-                            //op::log(valueToPrint);
+                            op::log(valueToPrint);
                         }
                         else if(bodyPart ==68) //left eye
                         {
@@ -512,7 +494,7 @@ public:
                         }
                     }
                 }
-                //op::log(" ");
+                op::log(" ");
 
 				mp.callback(poseKeypoints);
 				pthread_mutex_lock(&buf_mutex);
@@ -722,137 +704,127 @@ MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)
     //bodypartsmap = op::getPoseBodyPartMapping(pose_model);
 }
 
-
 void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){
 
-    //ROS_INFO("cloud callback");
+    ROS_INFO("cloud callback");
+
     pcl::fromROSMsg(*msg, *cloud);
-    //ROS_INFO("cloud size: %d  callback", static_cast<int>(cloud->points.size()));
+    
 }
 
 void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 {
     ros::Time t = ros::Time::now();
 //	openpose_wrapper::OpenPose msg;
-    //openpose_ros_wrapper_msgs::Persons persons;
-    
-    persons=openpose_ros_wrapper_msgs::Persons();
+    openpose_ros_wrapper_msgs::Persons persons;
     persons.rostime = t;
     persons.image_w = 640;
     persons.image_h = 480;
 
-    persons_3d=openpose_ros_wrapper_msgs::Persons3d();
-    persons_3d.rostime = t;
-    persons_3d.image_w = 640;
-    persons_3d.image_h = 480;
 
-   if(cloud->points.size() == 0)
-       return;
 //copied 
+    int num_people = poseKeypoints.getSize(0);
+    int num_bodyparts = poseKeypoints.getSize(1);
+
+    ROS_INFO("num people: %d", num_people);
+
+  for (size_t person_idx = 0; person_idx < num_people; person_idx++)
+  {
+    ROS_INFO("    Person ID: %zu", person_idx);
+
+    openpose_ros_msgs::PersonDetection person_msg;
+
+    //add number of people detected
+    person_msg.num_people_detected = num_people;
+
+    //add person ID
+    person_msg.person_ID = person_idx;	
+
+    // Initialize all bodyparts with nan
+    person_msg.nose = getNANBodypart();
+    person_msg.neck = getNANBodypart();
+    person_msg.right_shoulder = getNANBodypart();
+    person_msg.right_elbow = getNANBodypart();
+    person_msg.right_wrist = getNANBodypart();
+    person_msg.left_shoulder = getNANBodypart();
+    person_msg.left_elbow = getNANBodypart();
+    person_msg.left_wrist = getNANBodypart();
+    person_msg.right_hip = getNANBodypart();
+    person_msg.right_knee = getNANBodypart();
+    person_msg.right_ankle = getNANBodypart();
+    person_msg.left_hip = getNANBodypart();
+    person_msg.left_knee = getNANBodypart();
+    person_msg.left_ankle = getNANBodypart();
+    person_msg.right_eye = getNANBodypart();
+    person_msg.left_eye = getNANBodypart();
+    person_msg.right_ear = getNANBodypart();
+    person_msg.left_ear = getNANBodypart();
+    person_msg.chest = getNANBodypart();
+
+    for (size_t bodypart_idx = 0; bodypart_idx < num_bodyparts; bodypart_idx++)
+    {
+      size_t final_idx = 3*(person_idx*num_bodyparts + bodypart_idx);
+
+      std::string body_part_string = bodypartsmap[bodypart_idx];
+
+      openpose_ros_msgs::BodypartDetection bodypart_detection = getBodyPartDetectionFromArrayAndIndex(poseKeypoints, final_idx);
+
+      if (body_part_string == "Nose") person_msg.nose = bodypart_detection;
+      else if (body_part_string == "Neck") person_msg.neck = bodypart_detection;
+      else if (body_part_string == "RShoulder") person_msg.right_shoulder = bodypart_detection;
+      else if (body_part_string == "RElbow") person_msg.right_elbow = bodypart_detection;
+      else if (body_part_string == "RWrist") person_msg.right_wrist = bodypart_detection;
+      else if (body_part_string == "LShoulder") person_msg.left_shoulder = bodypart_detection;
+      else if (body_part_string == "LElbow") person_msg.left_elbow = bodypart_detection;
+      else if (body_part_string == "LWrist") person_msg.left_wrist = bodypart_detection;
+      else if (body_part_string == "RHip") person_msg.right_hip = bodypart_detection;
+      else if (body_part_string == "RKnee") person_msg.right_knee = bodypart_detection;
+      else if (body_part_string == "RAnkle") person_msg.right_ankle = bodypart_detection;
+      else if (body_part_string == "LHip") person_msg.left_hip = bodypart_detection;
+      else if (body_part_string == "LKnee") person_msg.left_knee = bodypart_detection;
+      else if (body_part_string == "LAnkle") person_msg.left_ankle = bodypart_detection;
+      else if (body_part_string == "REye") person_msg.right_eye = bodypart_detection;
+      else if (body_part_string == "LEye") person_msg.left_eye = bodypart_detection;
+      else if (body_part_string == "REar") person_msg.right_ear = bodypart_detection;
+      else if (body_part_string == "LEar") person_msg.left_ear = bodypart_detection;
+      else if (body_part_string == "Chest") person_msg.chest = bodypart_detection;
+      else
+      {
+        ROS_ERROR("Unknown bodypart %s, this should never happen!", body_part_string.c_str());
+      }
+
+      ROS_INFO("body part: %s", body_part_string.c_str());
+      ROS_INFO("(x, y, confidence): %i, %i, %f", bodypart_detection.x, bodypart_detection.y, bodypart_detection.confidence);
+
+    }
+    //std::cout<<"map info!!"<<std::endl;
+    //
+    std::map<unsigned int, std::string>::iterator mapiter = mp.bodypartsmap.begin();
+    for(mapiter=mp.bodypartsmap.begin();mapiter !=mp.bodypartsmap.end();++mapiter)
+        std::cout<<mapiter->second<<std::endl;
+  //keypoints_pub.publish(person_msg);
+  }
 
 // original msgs_mk
 //#####################################################################################3
-    const int num_people = poseKeypoints.getSize(0);
-    const int num_bodyparts = poseKeypoints.getSize(1);
+    //const int num_people = poseKeypoints.getSize(0);
+    //const int num_bodyparts = poseKeypoints.getSize(1);
 
-    std::vector<int> num_count(3,0);
-    std::vector<float> mean_dist(3,0.0);
-    //int z_count =0;
-    //float mean_z =0.0;
+    //for(size_t person_idx = 0; person_idx < num_people; person_idx++) {
+        //openpose_ros_wrapper_msgs::PersonDetection person;
+        //for (size_t bodypart_idx = 0; bodypart_idx < num_bodyparts; bodypart_idx++) {
+            //size_t final_idx = 3*(person_idx*num_bodyparts + bodypart_idx);
+            //openpose_ros_wrapper_msgs::BodyPartDetection bodypart;
+            //bodypart.part_id = bodypart_idx;
+            //bodypart.x = poseKeypoints[final_idx];
+            //bodypart.y = poseKeypoints[final_idx+1];
+            //bodypart.confidence = poseKeypoints[final_idx+2];
+            //person.body_part.push_back(bodypart);
+        //}
+        //persons.persons.push_back(person);
+    //}
+    //pose_pub.publish(persons);
 
-    for(size_t person_idx = 0; person_idx < num_people; person_idx++) {
-        openpose_ros_wrapper_msgs::PersonDetection person;
-        openpose_ros_wrapper_msgs::PersonDetection3d person_3d;
-
-
-        for(size_t c_idx =0 ;c_idx<num_count.size();c_idx++)
-        {
-        
-            num_count[c_idx]=0;
-            mean_dist[c_idx]=0.0;
-        
-        }
-
-        for (size_t bodypart_idx = 0; bodypart_idx < num_bodyparts; bodypart_idx++) {
-
-            size_t final_idx = 3*(person_idx*num_bodyparts + bodypart_idx);
-            openpose_ros_wrapper_msgs::BodyPartDetection bodypart;
-            bodypart.part_id = bodypart_idx;
-            bodypart.x = poseKeypoints[final_idx];
-            bodypart.y = poseKeypoints[final_idx+1];
-            bodypart.confidence = poseKeypoints[final_idx+2];
-            person.body_part.push_back(bodypart);
-
-            openpose_ros_wrapper_msgs::BodyPartDetection3d bodypart_3d;
-            bodypart_3d.part_id = bodypart_idx;
-            bodypart_3d.x = poseKeypoints[final_idx];
-            bodypart_3d.y = poseKeypoints[final_idx+1];
-            //bodypart_3d.z = 0 ;
-            bodypart_3d.confidence = poseKeypoints[final_idx+2];
-
-            //extract z information
-            if(bodypart_3d.x>0 && bodypart_3d.y>0){
-
-                int point_idx = bodypart.x+bodypart.y*CAMERA_PIXEL_WIDTH;
-                float point_z=0.0;
-
-                if ((point_idx<0) || (!pcl::isFinite(cloud->points[point_idx]))){
-                    continue;
-                }
-                else{
-
-                   if(cloud->points[point_idx].z) 
-                    point_z = cloud->points[point_idx].z;
-                    //ROS_INFO("bodyparpoint x : %d , y: %d , point idx :%d , point_z : %.3f ",bodypart_3d.x, bodypart_3d.y, point_idx, point_z);
-                    bodypart_3d.z =point_z; 
-
-                    for(size_t c_idx =0 ;c_idx<num_count.size();c_idx++)
-                        num_count[c_idx]++;
-                    
-                    mean_dist[0]+=bodypart.x;
-                    mean_dist[1]+=bodypart.y;
-                    mean_dist[2]+=point_z;
-                    
-                }
-                //ROS_INFO("bodyparpoint x : %d , y: %d , point idx :%d , point_z : %d ",bodypart_3d.x, bodypart_3d.y, point_idx, point_3d.z);
-            }
-            else{
-                bodypart_3d.z=0;
-            }
-            
-            person_3d.body_part.push_back(bodypart_3d);
-
-        }
-        
-        //calculate average_distance of body parts
-        for(size_t c_idx =0 ;c_idx<num_count.size();c_idx++)
-        {
-        
-            if(num_count[c_idx]!=0)
-                mean_dist[c_idx] =static_cast<float>(mean_dist[c_idx]/num_count[c_idx]);
-            else
-                mean_dist[c_idx]=0.0;
-
-        }
-
-        //mean_z =s;tatic_cast<float>(mean_z/z_count);
-        //person_3d.avg_pose.header.frame_id = (*cloud).header.frame_id;
-        person_3d.avg_pose.header.frame_id = "head_rgbd_sensor_rgb_frame";
-        person_3d.avg_pose.pose.position.x= mean_dist[0];
-        person_3d.avg_pose.pose.position.y= mean_dist[1];
-        person_3d.avg_pose.pose.position.z= mean_dist[2];
-        person_3d.avg_pose.pose.orientation.x= 0.0;
-        person_3d.avg_pose.pose.orientation.y= 0.0;
-        person_3d.avg_pose.pose.orientation.z= 0.0;
-        person_3d.avg_pose.pose.orientation.w= 1.0;
-        
-        persons.persons.push_back(person);
-        persons_3d.persons.push_back(person_3d);
-    }
-
-    pose_pub.publish(persons);
-    pose_3d_pub.publish(persons_3d);
- 
 
 	//int numHuman = poseKeypoints.getSize(0);
 	//int numPart  = poseKeypoints.getSize(1);
@@ -918,7 +890,6 @@ int main(int argc, char *argv[])
 	mp.publisher = nh.advertise<std_msgs::Float32MultiArray>("openpose_human_body", 1000);
     mp.image_skeleton_pub = nh.advertise<sensor_msgs::Image>( "/openpose_ros/detected_poses_image", 1 );  
     mp.pose_pub = nh.advertise<openpose_ros_wrapper_msgs::Persons>("/openpose/pose", 2);
-    mp.pose_3d_pub = nh.advertise<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 2);
     mp.keypoints_pub = nh.advertise<openpose_ros_msgs::PersonDetection>( "/openpose_ros/skeleton_3d/detected_poses_keypoints" , 0 );
     mp.eye_pub = nh.advertise<openpose_ros_wrapper_msgs::EyeDetection>( "/openpose_ros/eye_detections" , 0 );
     mp.pcl_sub= nh.subscribe<sensor_msgs::PointCloud2>("/hsrb/head_rgbd_sensor/depth_registered/rectified_points", 10,
