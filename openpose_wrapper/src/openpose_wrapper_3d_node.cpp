@@ -795,6 +795,8 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 
                 int point_idx = bodypart.x+bodypart.y*CAMERA_PIXEL_WIDTH;
                 float point_z=0.0;
+                float point_x=0.0;
+                float point_y=0.0;
 
                 if ((point_idx<0) || (!pcl::isFinite(cloud->points[point_idx]))){
                     continue;
@@ -802,15 +804,22 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
                 else{
 
                    if(cloud->points[point_idx].z) 
-                    point_z = cloud->points[point_idx].z;
+                   {
+                       point_x = cloud->points[point_idx].x;
+                       point_y = cloud->points[point_idx].y;
+                       point_z = cloud->points[point_idx].z;
+
+                   }
                     //ROS_INFO("bodyparpoint x : %d , y: %d , point idx :%d , point_z : %.3f ",bodypart_3d.x, bodypart_3d.y, point_idx, point_z);
+                    bodypart_3d.x =point_x; 
+                    bodypart_3d.y =point_y; 
                     bodypart_3d.z =point_z; 
 
                     for(size_t c_idx =0 ;c_idx<num_count.size();c_idx++)
                         num_count[c_idx]++;
                     
-                    mean_dist[0]+=bodypart.x;
-                    mean_dist[1]+=bodypart.y;
+                    mean_dist[0]+=bodypart_3d.x;
+                    mean_dist[1]+=bodypart_3d.y;
                     mean_dist[2]+=point_z;
                     
                 }

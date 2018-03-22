@@ -1,0 +1,4 @@
+<launch>
+<node pkg="visual_perception" type="visible_manager" name="visible_manager_node" output="screen"/>
+</launch>
+
