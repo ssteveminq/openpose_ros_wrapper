@@ -169,7 +169,10 @@ gflagToScaleMode	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op:
 gflagsToOpParameters	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^           std::vector<op::HeatMapType>> gflagsToOpParameters()$/;"	f
 gflagsToProducer	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^std::shared_ptr<op::Producer> gflagsToProducer(const std::string& imageDirectory, const std::string& videoPath, const int webcamIndex,$/;"	f
 gflagsToProducerType	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::ProducerType gflagsToProducerType(const std::string& imageDirectory, const std::string& videoPath, const int webcamIndex)$/;"	f
+global_pos_sub	visual_perception/include/people_marker.h	/^    ros::Subscriber global_pos_sub;$/;"	m	class:PeopleMarker
+global_pose	visual_perception/include/people_marker.h	/^	std::vector<double> global_pose;$/;"	m	class:PeopleMarker
 global_pose	visual_perception/include/visible_region.h	/^  std::vector<double> global_pose;$/;"	m	class:visible_manager
+global_pose_callback	visual_perception/src/people_marker.cpp	/^void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:PeopleMarker
 global_pose_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:visible_manager
 globalcoord_To_SScaled_map_index	visual_perception/src/visible_region.cpp	/^int visible_manager::globalcoord_To_SScaled_map_index(float x_pos,float y_pos)$/;"	f	class:visible_manager
 globalpose_sub	visual_perception/include/visible_region.h	/^  ros::Subscriber globalpose_sub;$/;"	m	class:visible_manager

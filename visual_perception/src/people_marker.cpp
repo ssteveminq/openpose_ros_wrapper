@@ -16,6 +16,9 @@ PeopleMarker::PeopleMarker() :
     
     people_marker_pub=n.advertise<visualization_msgs::MarkerArray>("/people_marker_array", 10, true);
     people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
+    global_pos_sub= n.subscribe<geometry_msgs::PoseStamped>("/global_pose", 10,&PeopleMarker::global_pose_callback, this);
+
+    global_pose.resize(3,0.0);
 
     ros::spin();
 }
@@ -84,8 +87,8 @@ void PeopleMarker::openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3
       listener.transformVector("/map", gV, tV);
 
       geometry_msgs::Pose transformPos;
-      transformPos.position.x=tV.vector.x;
-      transformPos.position.y=tV.vector.y;
+      transformPos.position.x=tV.vector.x+global_pose[0];
+      transformPos.position.y=tV.vector.y+global_pose[1];
       transformPos.position.z=0.5;
       transformPos.orientation.x=0.0;
       transformPos.orientation.y=0.0;
@@ -136,6 +139,28 @@ void PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){
 
     people_pose_pub.publish(poses_array_msg);
 }
+
+void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)
+{
+
+    global_pose.resize(3);
+
+   tf::StampedTransform baselinktransform;
+   listener.waitForTransform("map", "base_link", ros::Time(0), ros::Duration(10.0));
+   listener.lookupTransform("map", "base_link", ros::Time(0), baselinktransform);
+   double yaw_tf =   tf::getYaw(baselinktransform.getRotation()); 
+
+	
+	global_pose[0]=msg->pose.position.x;
+	global_pose[1]=msg->pose.position.y;
+	global_pose[2]=yaw_tf;
+
+
+ 	// ros::Duration(0.05).sleep();
+	// global_pose_callback
+}
+
+
 
 geometry_msgs::Point PeopleMarker::generate_position(geometry_msgs::Point centre, double angle, double dx, double dy)
 {

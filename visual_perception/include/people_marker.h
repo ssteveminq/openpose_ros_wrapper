@@ -41,6 +41,7 @@ private:
     void human_boxes_callback(const visualization_msgs::MarkerArray::ConstPtr& msg);
     void openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3d::ConstPtr& msg);
     void publish_poses(std::vector<geometry_msgs::Pose> points);
+    void global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
 
     geometry_msgs::Point generate_position(geometry_msgs::Point centre, double angle, double dx, double dy);
     geometry_msgs::Pose generate_extremity_position(geometry_msgs::Pose centre, double dx, double dy, double z);
@@ -57,6 +58,7 @@ private:
     ros::Publisher  people_pose_pub;
     ros::Subscriber people_boxes_sub;
     ros::Subscriber op_people_sub;
+    ros::Subscriber global_pos_sub;
     //tf::TransformListener* listener;
     std::string target_frame;
     unsigned long detect_seq;
@@ -64,6 +66,7 @@ private:
     double startup_time;
     std::string startup_time_str;
    
+	std::vector<double> global_pose;
    
     // boost::uuids::uuid dns_namespace_uuid;
 
