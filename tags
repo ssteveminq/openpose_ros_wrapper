@@ -6,17 +6,64 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 AddPoint	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^geometry_msgs::Point AddPoint(const openpose_ros_msgs::BodypartDetection_3d bodypart){$/;"	f
 Average	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^double Average(std::vector<double> v)$/;"	f
-BASE_LINK	visual_perception/include/people_marker.h	31;"	d
+BASE_LINK	visual_perception/include/people_marker.h	32;"	d
 CAMERA_PIXEL_HEIGHT	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	63;"	d	file:
 CAMERA_PIXEL_WIDTH	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	62;"	d	file:
+Camera_angle	visual_perception/include/humantracking.h	/^	double Camera_angle;$/;"	m	class:Human_Belief
+CellNum2globalCoord	visual_perception/src/humantracking.cpp	/^void Human_Belief::CellNum2globalCoord(const int Cell_idx, std::vector<double>& cell_xy)$/;"	f	class:Human_Belief
+Check_beliefmap	visual_perception/src/humantracking.cpp	/^void Human_Belief::Check_beliefmap()$/;"	f	class:Human_Belief
+Comparetwopoistions	visual_perception/src/humantracking.cpp	/^bool Human_Belief::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2)$/;"	f	class:Human_Belief
+Comparetwopoistions	visual_perception/src/humantracking.cpp	/^bool Human_Belief::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:Human_Belief
 Comparetwopoistions	visual_perception/src/visible_region.cpp	/^bool visible_manager::Comparetwopoistions(std::vector<double> pos,std::vector<double> pos2, double criterion)$/;"	f	class:visible_manager
+ConvertAngle2LaserIdx	visual_perception/src/humantracking.cpp	/^int Human_Belief::ConvertAngle2LaserIdx(double angle_rad)$/;"	f	class:Human_Belief
+CoordinateTransform_Global2_beliefMap	visual_perception/src/humantracking.cpp	/^int Human_Belief::CoordinateTransform_Global2_beliefMap(double global_x, double global_y)$/;"	f	class:Human_Belief
+CoordinateTransform_Global2_dynMap	visual_perception/src/humantracking.cpp	/^void Human_Belief::CoordinateTransform_Global2_dynMap(double global_x, double global_y)$/;"	f	class:Human_Belief
+CoordinateTransform_Global2_staticMap	visual_perception/src/humantracking.cpp	/^int Human_Belief::CoordinateTransform_Global2_staticMap(double global_x, double global_y)$/;"	f	class:Human_Belief
 CoordinateTransform_Global2_staticMap	visual_perception/src/visible_region.cpp	/^int visible_manager::CoordinateTransform_Global2_staticMap(float global_x, float global_y)$/;"	f	class:visible_manager
+Cur_detected_human	visual_perception/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_detected_human;$/;"	m	class:Human_Belief
+Cur_existed_human	visual_perception/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_existed_human;$/;"	m	class:Human_Belief
+Cur_leg_human	visual_perception/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_leg_human;$/;"	m	class:Human_Belief
+Cur_leg_yolo_human	visual_perception/include/humantracking.h	/^	std::vector< std::vector< double > > Cur_leg_yolo_human;$/;"	m	class:Human_Belief
+FOVW	visual_perception/include/humantracking.h	39;"	d
 FOVW	visual_perception/include/visible_region.h	33;"	d
+FindHuman	visual_perception/src/humantracking.cpp	/^bool Human_Belief::FindHuman(human_tracking::peoplefinder::Request &req, human_tracking::peoplefinder::Response &res)$/;"	f	class:Human_Belief
+FindNearesetLegIdx	visual_perception/src/humantracking.cpp	/^int Human_Belief::FindNearesetLegIdx()$/;"	f	class:Human_Belief
+Gaze_activate_pub	visual_perception/include/humantracking.h	/^	ros::Publisher Gaze_activate_pub;$/;"	m	class:Human_Belief
+Gaze_point_pub	visual_perception/include/humantracking.h	/^	ros::Publisher Gaze_point_pub;$/;"	m	class:Human_Belief
 HUMAN_MARKER_H	visual_perception/include/people_marker.h	2;"	d
+Head_Pos	visual_perception/include/humantracking.h	/^	std::vector<double> Head_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief
+Head_Pos	visual_perception/include/people_marker.h	/^    std::vector<double> Head_Pos;$/;"	m	class:PeopleMarker
 Head_Pos	visual_perception/include/visible_region.h	/^  std::vector<double> Head_Pos; $/;"	m	class:visible_manager
+Head_vel	visual_perception/include/humantracking.h	/^	std::vector<double> Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief
+Head_vel	visual_perception/include/people_marker.h	/^    std::vector<double> Head_vel;$/;"	m	class:PeopleMarker
+Headscan_pub	visual_perception/include/humantracking.h	/^	ros::Publisher Headscan_pub;$/;"	m	class:Human_Belief
+Human_Belief	visual_perception/include/humantracking.h	/^class Human_Belief{$/;"	c
+Human_Belief	visual_perception/src/humantracking.cpp	/^Human_Belief::Human_Belief():index(0),m_numofhuman(0),m_receiveiter(0){$/;"	f	class:Human_Belief
+Human_Belief	visual_perception/src/humantracking.cpp	/^Human_Belief::Human_Belief(int numofhuman)$/;"	f	class:Human_Belief
+Human_MarkerarrayCallback	visual_perception/src/humantracking.cpp	/^void Human_Belief::Human_MarkerarrayCallback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:Human_Belief
+Human_boxes_pub	visual_perception/include/humantracking.h	/^	ros::Publisher Human_boxes_pub;$/;"	m	class:Human_Belief
+Human_target_candidate	visual_perception/include/humantracking.h	/^	std::vector<double> Human_target_candidate;				\/\/x,y,theta$/;"	m	class:Human_Belief
+Init_parameters	visual_perception/src/humantracking.cpp	/^void Human_Belief::Init_parameters()$/;"	f	class:Human_Belief
+InitializeBelief	visual_perception/src/humantracking.cpp	/^void Human_Belief::InitializeBelief()$/;"	f	class:Human_Belief
+IsHeadMoving	visual_perception/include/humantracking.h	/^	bool IsHeadMoving;$/;"	m	class:Human_Belief
+IsHeadMoving	visual_perception/include/people_marker.h	/^	bool IsHeadMoving;$/;"	m	class:PeopleMarker
+IsJointMoving	visual_perception/src/humantracking.cpp	/^bool Human_Belief::IsJointMoving(int joint_idx)$/;"	f	class:Human_Belief
 IsNotInitilized	visual_perception/src/visible_region.cpp	/^bool IsNotInitilized = true;$/;"	v
+IsRobotMoving	visual_perception/include/people_marker.h	/^	bool IsRobotMoving;$/;"	m	class:PeopleMarker
+IsTargetMoved	visual_perception/src/humantracking.cpp	/^bool Human_Belief::IsTargetMoved(const std::vector<double> possible_target_pos, float criterion)$/;"	f	class:Human_Belief
+LASER_ANGLE_MAX	visual_perception/include/humantracking.h	57;"	d
+LASER_ANGLE_MIN	visual_perception/include/humantracking.h	56;"	d
+LASER_ANGLE_RES	visual_perception/include/humantracking.h	51;"	d
+LASER_ANGLE_STEP	visual_perception/include/humantracking.h	58;"	d
+LASER_Data_Length	visual_perception/include/humantracking.h	52;"	d
 LASER_Dist_person	visual_perception/include/visible_region.h	36;"	d
+LASER_Point_Step	visual_perception/include/humantracking.h	53;"	d
+Last_Head_vel	visual_perception/include/humantracking.h	/^	std::vector<double> Last_Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief
+Last_detected_human	visual_perception/include/humantracking.h	/^	std::vector< std::vector< double > > Last_detected_human;$/;"	m	class:Human_Belief
+MATH_PI	visual_perception/include/humantracking.h	40;"	d
 MATH_PI	visual_perception/include/visible_region.h	34;"	d
+MAX_UPDATE_ITER	visual_perception/include/humantracking.h	49;"	d
+MAX_VIEW_UPDATE_ITER	visual_perception/include/humantracking.h	50;"	d
 MODEL_POSE	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	71;"	d	file:
 MyPublisher	openpose_wrapper/src/3d_backup.cpp	/^MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)$/;"	f	class:MyPublisher
 MyPublisher	openpose_wrapper/src/3d_backup.cpp	/^class MyPublisher$/;"	c	file:
@@ -27,18 +74,34 @@ MyPublisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class MyPublisher$/
 MySyncPolicy	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2, sensor_msgs::Image> MySyncPolicy;$/;"	t	file:
 NET_RES_X	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	63;"	d	file:
 NET_RES_Y	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	64;"	d	file:
+NotUpdatedCameraregion	visual_perception/src/humantracking.cpp	/^bool Human_Belief::NotUpdatedCameraregion(int idx)$/;"	f	class:Human_Belief
 OUTPUT_RES_X	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	67;"	d	file:
 OUTPUT_RES_Y	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	68;"	d	file:
+OnceTargeted	visual_perception/include/humantracking.h	/^	bool OnceTargeted;$/;"	m	class:Human_Belief
+P_H	visual_perception/include/humantracking.h	41;"	d
+P_S_given_H	visual_perception/include/humantracking.h	42;"	d
+P_S_given_Hc	visual_perception/include/humantracking.h	43;"	d
+P_Sc_given_H	visual_perception/include/humantracking.h	45;"	d
+P_Sc_given_Hc	visual_perception/include/humantracking.h	46;"	d
 PeopleMarker	visual_perception/include/people_marker.h	/^class PeopleMarker$/;"	c
 PeopleMarker	visual_perception/src/people_marker.cpp	/^PeopleMarker::PeopleMarker() :$/;"	f	class:PeopleMarker
 PointISValid	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^bool PointISValid(const openpose_ros_msgs::BodypartDetection_3d bodypart){$/;"	f
+Publish_beliefmap	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_beliefmap()$/;"	f	class:Human_Belief
+Publish_human_boxes	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_human_boxes()$/;"	f	class:Human_Belief
+Publish_human_target	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_human_target()$/;"	f	class:Human_Belief
+Publish_nav_target	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_nav_target()$/;"	f	class:Human_Belief
+Robot_Pos	visual_perception/include/humantracking.h	/^	std::vector<double> Robot_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief
 RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        RosImgSub(const std::string& image_topic): it_(nh_)$/;"	f	class:RosImgSub
 RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^class RosImgSub$/;"	c	file:
+Same_POS_diff	visual_perception/include/humantracking.h	48;"	d
 Scaled_map	visual_perception/include/visible_region.h	/^  nav_msgs::OccupancyGrid Scaled_map;$/;"	m	class:visible_manager
 Scaled_static_map_sub	visual_perception/include/visible_region.h	/^  ros::Subscriber Scaled_static_map_sub;$/;"	m	class:visible_manager
+SetTarget	visual_perception/src/humantracking.cpp	/^void Human_Belief::SetTarget()$/;"	f	class:Human_Belief
 SubscribeAndPublish	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  SubscribeAndPublish()$/;"	f	class:SubscribeAndPublish
 SubscribeAndPublish	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^class SubscribeAndPublish$/;"	c	file:
 Target_Dist_person	visual_perception/include/visible_region.h	35;"	d
+Track_human_target	visual_perception/include/humantracking.h	/^	std::vector<double> Track_human_target;				\/\/x,y,theta$/;"	m	class:Human_Belief
+UpdateTarget	visual_perception/src/humantracking.cpp	/^void Human_Belief::UpdateTarget()$/;"	f	class:Human_Belief
 UserDatum	openpose_wrapper/src/3d_backup.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
 UserDatum	openpose_wrapper/src/3d_backup.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
 UserDatum	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
@@ -63,6 +126,11 @@ WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUser
 _count	openpose_wrapper/src/3d_backup.cpp	/^int _count = 0;$/;"	v
 _count	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int _count = 0;$/;"	v
 _count	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int _count = 0;$/;"	v
+angle_criticalvalue	visual_perception/include/humantracking.h	/^	std::vector<double> angle_criticalvalue;$/;"	m	class:Human_Belief
+angle_people_set	visual_perception/include/humantracking.h	/^	std::vector<double> angle_people_set;$/;"	m	class:Human_Belief
+base_pose_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)$/;"	f	class:Human_Belief
+belief_pub	visual_perception/include/humantracking.h	/^	ros::Publisher belief_pub;$/;"	m	class:Human_Belief
+belief_size	visual_perception/include/humantracking.h	/^	int belief_size;$/;"	m	class:Human_Belief
 bodypartsmap	openpose_wrapper/src/3d_backup.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
 bodypartsmap	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
 boolThatUserNeedsForSomeReason	openpose_wrapper/src/3d_backup.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
@@ -90,6 +158,7 @@ check_staticObs	visual_perception/src/visible_region.cpp	/^bool visible_manager:
 client	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::ServiceClient client;$/;"	v
 cloud	openpose_wrapper/src/3d_backup.cpp	/^    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; $/;"	m	class:MyPublisher	file:
 cloud	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; $/;"	m	class:MyPublisher	file:
+cloud	visual_perception/include/humantracking.h	/^	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud;$/;"	m	class:Human_Belief
 cloud_callback	openpose_wrapper/src/3d_backup.cpp	/^void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){$/;"	f	class:MyPublisher
 cloud_callback	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){$/;"	f	class:MyPublisher
 convertImage	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        void convertImage(const sensor_msgs::ImageConstPtr& msg)$/;"	f	class:RosImgSub
@@ -113,7 +182,11 @@ cv_ptr	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImagePtr
 cv_ptr	openpose_wrapper/src/openpose_wrapper_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
 detectPosesCallback	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^bool detectPosesCallback(openpose_ros_msgs::GetPersons::Request& req, openpose_ros_msgs::GetPersons::Response& res)$/;"	f
 detectPosesCallback	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^bool detectPosesCallback(openpose_ros_msgs::GetPersons::Request& req, openpose_ros_msgs::GetPersons::Response& res)$/;"	f
+detect_iters	visual_perception/include/humantracking.h	/^	int detect_iters;$/;"	m	class:Human_Belief
 detect_seq	visual_perception/include/people_marker.h	/^    unsigned long detect_seq;$/;"	m	class:PeopleMarker
+dyn_map_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::dyn_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:Human_Belief
+dynamic_belief_map	visual_perception/include/humantracking.h	/^	nav_msgs::OccupancyGrid dynamic_belief_map;$/;"	m	class:Human_Belief
+edge_leg_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Human_Belief
 eye_msg	openpose_wrapper/src/3d_backup.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
 eye_msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
 eye_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher eye_pub;$/;"	m	class:MyPublisher	file:
@@ -148,8 +221,11 @@ getBodyPartDetectionFromArrayAndIndex	references/openpose_ros/openpose_ros_pkg/s
 getBodyPartDetectionFromArrayAndIndex	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
 getBodyPartMapFromPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^std::map<unsigned int, std::string> getBodyPartMapFromPoseModel(const op::PoseModel& pose_model)$/;"	f
 getBodyPartMapFromPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^std::map<unsigned int, std::string> getBodyPartMapFromPoseModel(const op::PoseModel& pose_model)$/;"	f
+getCameraregion	visual_perception/src/humantracking.cpp	/^void Human_Belief::getCameraregion()$/;"	f	class:Human_Belief
 getCameraregion	visual_perception/src/visible_region.cpp	/^void visible_manager::getCameraregion()$/;"	f	class:visible_manager
 getCvImagePtr	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        cv_bridge::CvImagePtr& getCvImagePtr()$/;"	f	class:RosImgSub
+getDistance	visual_perception/src/humantracking.cpp	/^double Human_Belief::getDistance(double _x, double _y)$/;"	f	class:Human_Belief
+getDistance_from_Vec	visual_perception/src/humantracking.cpp	/^double Human_Belief::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Human_Belief
 getDistance_from_Vec	visual_perception/src/visible_region.cpp	/^double visible_manager::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:visible_manager
 getNANBodypart	openpose_wrapper/src/3d_backup.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
 getNANBodypart	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
@@ -160,6 +236,7 @@ getParam	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^T 
 getParam	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^T getParam(const ros::NodeHandle& nh, const std::string& param_name, T default_value)$/;"	f
 getParamK	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^K getParamK(const ros::NodeHandle& nh, const std::string& param_name, K default_value)$/;"	f
 getParamK	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^K getParamK(const ros::NodeHandle& nh, const std::string& param_name, K default_value)$/;"	f
+getlinevalue	visual_perception/src/humantracking.cpp	/^bool Human_Belief::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:Human_Belief
 getlinevalue	visual_perception/src/visible_region.cpp	/^bool visible_manager::getlinevalue(int line_type,double input_x, double input_y)$/;"	f	class:visible_manager
 gflagToDetectionMode	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::DetectionMode gflagToDetectionMode(const int handDetectionModeFlag, const std::shared_ptr<op::Producer>& producer = nullptr)$/;"	f
 gflagToHeatMaps	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^std::vector<op::HeatMapType> gflagToHeatMaps(const bool heatMapsAddParts, const bool heatMapsAddBkg, const bool heatMapsAddPAFs)$/;"	f
@@ -170,14 +247,25 @@ gflagsToOpParameters	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/
 gflagsToProducer	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^std::shared_ptr<op::Producer> gflagsToProducer(const std::string& imageDirectory, const std::string& videoPath, const int webcamIndex,$/;"	f
 gflagsToProducerType	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^op::ProducerType gflagsToProducerType(const std::string& imageDirectory, const std::string& videoPath, const int webcamIndex)$/;"	f
 global_pos_sub	visual_perception/include/people_marker.h	/^    ros::Subscriber global_pos_sub;$/;"	m	class:PeopleMarker
+global_pose	visual_perception/include/humantracking.h	/^	std::vector<double> global_pose;$/;"	m	class:Human_Belief
 global_pose	visual_perception/include/people_marker.h	/^	std::vector<double> global_pose;$/;"	m	class:PeopleMarker
 global_pose	visual_perception/include/visible_region.h	/^  std::vector<double> global_pose;$/;"	m	class:visible_manager
+global_pose_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:Human_Belief
 global_pose_callback	visual_perception/src/people_marker.cpp	/^void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:PeopleMarker
 global_pose_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)$/;"	f	class:visible_manager
 globalcoord_To_SScaled_map_index	visual_perception/src/visible_region.cpp	/^int visible_manager::globalcoord_To_SScaled_map_index(float x_pos,float y_pos)$/;"	f	class:visible_manager
 globalpose_sub	visual_perception/include/visible_region.h	/^  ros::Subscriber globalpose_sub;$/;"	m	class:visible_manager
 height	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	30;"	d	file:
+human_belief_map	visual_perception/include/humantracking.h	/^	nav_msgs::OccupancyGrid human_belief_map;$/;"	m	class:Human_Belief
+human_boxes_array	visual_perception/include/humantracking.h	/^	visualization_msgs::MarkerArray human_boxes_array;$/;"	m	class:Human_Belief
 human_boxes_callback	visual_perception/src/people_marker.cpp	/^void PeopleMarker::human_boxes_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:PeopleMarker
+human_laser_pub	visual_perception/include/humantracking.h	/^	ros::Publisher human_laser_pub;$/;"	m	class:Human_Belief
+human_laser_scan_pub	visual_perception/include/humantracking.h	/^	ros::Publisher human_laser_scan_pub;$/;"	m	class:Human_Belief
+human_leg_target_pub	visual_perception/include/humantracking.h	/^	ros::Publisher human_leg_target_pub;$/;"	m	class:Human_Belief
+human_occupied_idx	visual_perception/include/humantracking.h	/^	std::vector<int> human_occupied_idx;$/;"	m	class:Human_Belief
+human_occupied_leg_idx	visual_perception/include/humantracking.h	/^	std::vector<int> human_occupied_leg_idx;$/;"	m	class:Human_Belief
+human_target_Intcmd_pub	visual_perception/include/humantracking.h	/^	ros::Publisher human_target_Intcmd_pub;$/;"	m	class:Human_Belief
+human_target_pub	visual_perception/include/humantracking.h	/^	ros::Publisher human_target_pub;$/;"	m	class:Human_Belief
 human_target_pub	visual_perception/include/visible_region.h	/^  ros::Publisher human_target_pub;$/;"	m	class:visible_manager
 human_yolo_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::human_yolo_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:visible_manager
 image_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher           image_pub;   $/;"	v
@@ -190,6 +278,8 @@ image_sub_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_fireph
 index	openpose_wrapper/src/3d_backup.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
 index	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
 index	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
+index	visual_perception/include/humantracking.h	/^	int index;$/;"	m	class:Human_Belief
+index_of_human_occ_cells_updated_recently	visual_perception/include/humantracking.h	/^	std::vector<int> index_of_human_occ_cells_updated_recently;$/;"	m	class:Human_Belief
 initializationOnThread	openpose_wrapper/src/3d_backup.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
 initializationOnThread	openpose_wrapper/src/3d_backup.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
 initializationOnThread	openpose_wrapper/src/3d_backup.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
@@ -201,12 +291,19 @@ initializationOnThread	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void
 initializationOnThread	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
 it_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        image_transport::ImageTransport it_;$/;"	m	class:RosImgSub	file:
 joint_state_sub	visual_perception/include/visible_region.h	/^  ros::Subscriber joint_state_sub;$/;"	m	class:visible_manager
+joint_states_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:Human_Belief
+joint_states_callback	visual_perception/src/people_marker.cpp	/^void PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:PeopleMarker
 joint_states_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)$/;"	f	class:visible_manager
+joint_states_sub	visual_perception/include/people_marker.h	/^    ros::Subscriber joint_states_sub;$/;"	m	class:PeopleMarker
 keypoints_3d_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher	         keypoints_3d_pub;$/;"	v
 keypoints_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
 keypoints_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
 keypoints_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^ros::Publisher           keypoints_pub;$/;"	v
 keypoints_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^ros::Publisher           keypoints_pub;$/;"	v
+laser_pcl_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::laser_pcl_callback(const sensor_msgs::PointCloud2 ::ConstPtr& msg)$/;"	f	class:Human_Belief
+laser_scan_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::laser_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg)$/;"	f	class:Human_Belief
+leg_target	visual_perception/include/humantracking.h	/^	std::vector<double> leg_target;				\/\/x,y,theta$/;"	m	class:Human_Belief
+listener	visual_perception/include/humantracking.h	/^	tf::TransformListener 	  listener;$/;"	m	class:Human_Belief
 listener	visual_perception/include/people_marker.h	/^    tf::TransformListener listener;$/;"	m	class:PeopleMarker
 listener	visual_perception/include/visible_region.h	/^  tf::TransformListener     listener;$/;"	m	class:visible_manager
 mCounter	openpose_wrapper/src/3d_backup.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
@@ -215,6 +312,18 @@ mCounter	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    unsigned long long
 mImageFiles	openpose_wrapper/src/3d_backup.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
 mImageFiles	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
 mImageFiles	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
+m_dyn_occupancy	visual_perception/include/humantracking.h	/^	std::vector<double> m_dyn_occupancy;$/;"	m	class:Human_Belief
+m_human_posx	visual_perception/include/humantracking.h	/^	std::vector<double> m_human_posx;$/;"	m	class:Human_Belief
+m_human_posy	visual_perception/include/humantracking.h	/^	std::vector<double> m_human_posy;$/;"	m	class:Human_Belief
+m_leg_idx_set	visual_perception/include/humantracking.h	/^	std::vector<int>    m_leg_idx_set;$/;"	m	class:Human_Belief
+m_leg_updateiter	visual_perception/include/humantracking.h	/^	int m_leg_updateiter;$/;"	m	class:Human_Belief
+m_numofhuman	visual_perception/include/humantracking.h	/^	int m_numofhuman;$/;"	m	class:Human_Belief
+m_prob_occupancy	visual_perception/include/humantracking.h	/^	std::vector<double> m_prob_occupancy;$/;"	m	class:Human_Belief
+m_receiveiter	visual_perception/include/humantracking.h	/^	int m_receiveiter;$/;"	m	class:Human_Belief
+m_updateiter	visual_perception/include/humantracking.h	/^	int m_updateiter;$/;"	m	class:Human_Belief
+m_viewupdateiter	visual_perception/include/humantracking.h	/^	int m_viewupdateiter;$/;"	m	class:Human_Belief
+m_yolo_idx_set	visual_perception/include/humantracking.h	/^	std::vector<int>    m_yolo_idx_set;$/;"	m	class:Human_Belief
+m_yolo_recieveiter	visual_perception/include/humantracking.h	/^	int m_yolo_recieveiter;$/;"	m	class:Human_Belief
 main	openpose_wrapper/src/3d_backup.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int main(int argc, char *argv[])$/;"	f
@@ -227,6 +336,7 @@ main	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cp
 main	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^int main(int argc, char **argv)$/;"	f
 main	visual_perception/src/people_marker.cpp	/^int main(int argc, char **argv)$/;"	f
 main	visual_perception/src/visible_region.cpp	/^int main(int argc, char **argv)$/;"	f
+map_index_of_human_cells_to_prob	visual_perception/include/humantracking.h	/^	std::map<int, float> map_index_of_human_cells_to_prob;$/;"	m	class:Human_Belief
 marker_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::Publisher marker_pub;$/;"	m	class:SubscribeAndPublish	file:
 marker_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^ros::Publisher   marker_pub;$/;"	v
 marker_seq	visual_perception/include/people_marker.h	/^    unsigned long marker_seq;$/;"	m	class:PeopleMarker
@@ -243,6 +353,7 @@ nh_	visual_perception/include/visible_region.h	/^  ros::NodeHandle nh_;$/;"	m	cl
 notDetectedBodyPart	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^void notDetectedBodyPart(std::string bodypart_name)$/;"	f
 num_of_detected_human	visual_perception/include/visible_region.h	/^  int num_of_detected_human;$/;"	m	class:visible_manager
 num_particles_tracker	visual_perception/src/visible_region.cpp	/^static const unsigned int num_particles_tracker      = 1000;$/;"	v	file:
+number_detected_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::number_detected_callback(const std_msgs::Int8::ConstPtr &msg){$/;"	f	class:Human_Belief
 opOutputToCvMat	openpose_wrapper/src/3d_backup.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
 opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
 opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
@@ -281,30 +392,53 @@ pose_3d_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher 
 pose_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
 pose_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
 pose_pub	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
+pre_global_pose	visual_perception/include/people_marker.h	/^	std::vector<double> pre_global_pose;$/;"	m	class:PeopleMarker
+print_iter	visual_perception/include/humantracking.h	/^	int print_iter;$/;"	m	class:Human_Belief
+pub_iters	visual_perception/include/humantracking.h	/^	int pub_iters;$/;"	m	class:Human_Belief
 publish_cameraregion	visual_perception/src/visible_region.cpp	/^void visible_manager::publish_cameraregion()$/;"	f	class:visible_manager
+publish_headscan	visual_perception/src/humantracking.cpp	/^void Human_Belief::publish_headscan()$/;"	f	class:Human_Belief
 publish_poses	visual_perception/src/people_marker.cpp	/^void PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){$/;"	f	class:PeopleMarker
 publisher	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
 publisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
 publisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
+put_human_occ_map	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map()$/;"	f	class:Human_Belief
+put_human_occ_map_leg	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map_leg()$/;"	f	class:Human_Belief
+put_human_occ_map_yolo	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map_yolo()$/;"	f	class:Human_Belief
+put_human_surrounding_beliefmap	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_surrounding_beliefmap(int idx)$/;"	f	class:Human_Belief
 robot_state_	visual_perception/include/visible_region.h	/^  tf::TransformListener     robot_state_;$/;"	m	class:visible_manager
 scaled_static_map_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::scaled_static_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:visible_manager
+scanforhuman	visual_perception/src/humantracking.cpp	/^void Human_Belief::scanforhuman(const ros::TimerEvent& event)$/;"	f	class:Human_Belief
+scanmode	visual_perception/include/humantracking.h	/^	bool scanmode;$/;"	m	class:Human_Belief
 sequencer_delay	visual_perception/src/visible_region.cpp	/^static const double       sequencer_delay            = 0.5; \/\/TODO: this is probably too big, it was 0.8$/;"	v	file:
 sequencer_internal_buffer	visual_perception/src/visible_region.cpp	/^static const unsigned int sequencer_internal_buffer  = 100;$/;"	v	file:
 sequencer_subscribe_buffer	visual_perception/src/visible_region.cpp	/^static const unsigned int sequencer_subscribe_buffer = 10;$/;"	v	file:
+setHumanOccupancy	visual_perception/src/humantracking.cpp	/^void Human_Belief::setHumanOccupancy(int idx, double dyn_posx,double dyn_posy)$/;"	f	class:Human_Belief
+setNavTarget_pub	visual_perception/include/humantracking.h	/^	ros::Publisher setNavTarget_pub;$/;"	m	class:Human_Belief
+setNearestHuman	visual_perception/src/humantracking.cpp	/^void Human_Belief::setNearestHuman()$/;"	f	class:Human_Belief
+setNearestHuman_leg	visual_perception/src/humantracking.cpp	/^void Human_Belief::setNearestHuman_leg()$/;"	f	class:Human_Belief
+setViewpointTarget	visual_perception/src/humantracking.cpp	/^void Human_Belief::setViewpointTarget(const std::vector<double> pos)$/;"	f	class:Human_Belief
 skeleton_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::Publisher skeleton_pub;$/;"	m	class:SubscribeAndPublish	file:
 skeleton_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^ros::Publisher   skeleton_pub;$/;"	v
 spin	visual_perception/src/visible_region.cpp	/^void visible_manager::spin()$/;"	f	class:visible_manager
 srv	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^openpose_ros_msgs::GetPersons srv;$/;"	v
 startup_time	visual_perception/include/people_marker.h	/^    double startup_time;$/;"	m	class:PeopleMarker
 startup_time_str	visual_perception/include/people_marker.h	/^    std::string startup_time_str;$/;"	m	class:PeopleMarker
+static_belief_map	visual_perception/include/humantracking.h	/^	nav_msgs::OccupancyGrid static_belief_map;$/;"	m	class:Human_Belief
+static_belief_map_pub	visual_perception/include/humantracking.h	/^	ros::Publisher static_belief_map_pub;$/;"	m	class:Human_Belief
 stringToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^op::PoseModel stringToPoseModel(const std::string& pose_model_string)$/;"	f
 stringToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^op::PoseModel stringToPoseModel(const std::string& pose_model_string)$/;"	f
 stringToPoseModel	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^op::PoseModel stringToPoseModel(const std::string& pose_model_string)$/;"	f
 sub_	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::Subscriber sub_;$/;"	m	class:SubscribeAndPublish	file:
 target_frame	visual_perception/include/people_marker.h	/^    std::string target_frame;$/;"	m	class:PeopleMarker
+targetup	visual_perception/include/humantracking.h	/^	int targetup;$/;"	m	class:Human_Belief
+track_cmd	visual_perception/include/humantracking.h	/^	std_msgs::Int8 track_cmd;$/;"	m	class:Human_Belief
 tracker_init_dist	visual_perception/src/visible_region.cpp	/^static const double       tracker_init_dist          = 4.0;$/;"	v	file:
+update_human_occ_belief	visual_perception/src/humantracking.cpp	/^void Human_Belief::update_human_occ_belief()$/;"	f	class:Human_Belief
+update_human_occ_belief_scan	visual_perception/src/humantracking.cpp	/^void Human_Belief::update_human_occ_belief_scan()$/;"	f	class:Human_Belief
+viewpoint_robot	visual_perception/include/humantracking.h	/^	std::vector< double >  viewpoint_robot;$/;"	m	class:Human_Belief
 visible_manager	visual_perception/include/visible_region.h	/^class visible_manager$/;"	c
 visible_manager	visual_perception/src/visible_region.cpp	/^visible_manager::visible_manager(ros::NodeHandle nh)$/;"	f	class:visible_manager
+visiblie_idx_set	visual_perception/include/humantracking.h	/^	std::vector<int> visiblie_idx_set;$/;"	m	class:Human_Belief
 visiblie_idx_set	visual_perception/include/visible_region.h	/^  std::vector<int> visiblie_idx_set;$/;"	m	class:visible_manager
 width	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	29;"	d	file:
 work	openpose_wrapper/src/3d_backup.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
@@ -316,5 +450,6 @@ workConsumer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void workConsu
 workProducer	openpose_wrapper/src/3d_backup.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
 workProducer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
 workProducer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
+~Human_Belief	visual_perception/src/humantracking.cpp	/^Human_Belief::~Human_Belief(){}$/;"	f	class:Human_Belief
 ~RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        ~RosImgSub(){}$/;"	f	class:RosImgSub
 ~visible_manager	visual_perception/src/visible_region.cpp	/^visible_manager::~visible_manager()$/;"	f	class:visible_manager

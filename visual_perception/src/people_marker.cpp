@@ -2,7 +2,9 @@
 
 PeopleMarker::PeopleMarker() :
     detect_seq(0),
-    marker_seq(0)
+    marker_seq(0),
+    IsHeadMoving(false),
+    IsRobotMoving(false)
 {
     ros::NodeHandle n;
 
@@ -17,8 +19,12 @@ PeopleMarker::PeopleMarker() :
     people_marker_pub=n.advertise<visualization_msgs::MarkerArray>("/people_marker_array", 10, true);
     people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
     global_pos_sub= n.subscribe<geometry_msgs::PoseStamped>("/global_pose", 10,&PeopleMarker::global_pose_callback, this);
+    joint_states_sub= n.subscribe<sensor_msgs::JointState>("/hsrb/joint_states", 10,&PeopleMarker::joint_states_callback, this);
 
     global_pose.resize(3,0.0);
+    pre_global_pose.resize(3,0.0);
+    Head_Pos.resize(2,0.0);
+    Head_vel.resize(2,0.0);
 
     ros::spin();
 }
@@ -126,6 +132,29 @@ void PeopleMarker::human_boxes_callback(const visualization_msgs::MarkerArray::C
   
 }
 
+void PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)
+{
+
+	Head_Pos[0]=msg->position[9];			//pan
+	Head_Pos[1]=msg->position[10];			//tilt
+	
+	Head_vel[0]=msg->velocity[9];
+	Head_vel[1]=msg->velocity[10];
+
+
+    double head_vel =0.0;
+    head_vel = pow(Head_vel[0],2)+pow(Head_vel[1],2);
+    head_vel = sqrt(head_vel);
+
+	ROS_INFO("Head moving : %.3lf",head_vel);
+
+	//if(abs(Head_vel[0])>0.002)
+		//IsHeadMoving=true;
+	//else
+		//IsHeadMoving=false;
+
+
+}
 
 void PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){
 
@@ -149,15 +178,30 @@ void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstP
    listener.waitForTransform("map", "base_link", ros::Time(0), ros::Duration(10.0));
    listener.lookupTransform("map", "base_link", ros::Time(0), baselinktransform);
    double yaw_tf =   tf::getYaw(baselinktransform.getRotation()); 
-
 	
+   //update current global pose
 	global_pose[0]=msg->pose.position.x;
 	global_pose[1]=msg->pose.position.y;
 	global_pose[2]=yaw_tf;
 
+   //check distance with previous pose
+    double move_distance =0.0;
+    for(size_t idx(0);idx<global_pose.size();idx++)
+        move_distance+=pow((pre_global_pose[idx]-global_pose[idx]),2);
+    move_distance=sqrt(move_distance);
 
- 	// ros::Duration(0.05).sleep();
-	// global_pose_callback
+    ROS_INFO("robot is moving : %.3lf", move_distance);
+
+    if(move_distance>0.2)
+        IsRobotMoving=true;
+    else
+        IsRobotMoving=false;
+    
+
+    //save to previous global pose
+    for(size_t idx(0);idx<global_pose.size();idx++)
+        pre_global_pose[idx]=global_pose[idx];
+
 }
 
 

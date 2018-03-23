@@ -14,6 +14,7 @@
 #include <visualization_msgs/MarkerArray.h>
 #include <visualization_msgs/Marker.h>
 #include <std_msgs/ColorRGBA.h>
+#include <sensor_msgs/JointState.h>
 #include <openpose_ros_wrapper_msgs/Persons3d.h>
 
 // #include <people_msgs/People.h>
@@ -42,6 +43,7 @@ private:
     void openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3d::ConstPtr& msg);
     void publish_poses(std::vector<geometry_msgs::Pose> points);
     void global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg);
+    void joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg);
 
     geometry_msgs::Point generate_position(geometry_msgs::Point centre, double angle, double dx, double dy);
     geometry_msgs::Pose generate_extremity_position(geometry_msgs::Pose centre, double dx, double dy, double z);
@@ -53,12 +55,15 @@ private:
     visualization_msgs::Marker createMarker(int id,int type, int action, 
                                 geometry_msgs::Pose pose, geometry_msgs::Vector3 scale, std_msgs::ColorRGBA color);
 
+    std::vector<double> Head_Pos;
+    std::vector<double> Head_vel;
     tf::TransformListener listener;
     ros::Publisher  people_marker_pub;
     ros::Publisher  people_pose_pub;
     ros::Subscriber people_boxes_sub;
     ros::Subscriber op_people_sub;
     ros::Subscriber global_pos_sub;
+    ros::Subscriber joint_states_sub;
     //tf::TransformListener* listener;
     std::string target_frame;
     unsigned long detect_seq;
@@ -66,7 +71,11 @@ private:
     double startup_time;
     std::string startup_time_str;
    
+	bool IsRobotMoving;
+	bool IsHeadMoving;
+
 	std::vector<double> global_pose;
+	std::vector<double> pre_global_pose;
    
     // boost::uuids::uuid dns_namespace_uuid;
 
