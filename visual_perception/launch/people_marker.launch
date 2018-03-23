@@ -1,0 +1,5 @@
+<launch>
+<node pkg="visual_perception" type="people_marker" name="people_makrer_node" output="screen"/>
+<node pkg="openpose_wrapper" type="openpose_wrapper_3d_node" name="openpose_3d_node" output="screen"/>
+</launch>
+
