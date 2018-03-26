@@ -1,6 +1,6 @@
-#include "people_marker.h"
+#include "filter_people_marker.h"
 
-PeopleMarker::PeopleMarker() :
+filter_PeopleMarker::filter_PeopleMarker() :
     detect_seq(0),
     marker_seq(0),
     IsHeadMoving(false),
@@ -12,14 +12,14 @@ PeopleMarker::PeopleMarker() :
     //target_frame="head_rgbd_sensor_rgb_frame";
 
     // listener = new tf::TransformListener();
-    //people_boxes_sub=n.subscribe<visualization_msgs::MarkerArray>("/human_boxes", 10, &PeopleMarker::human_boxes_callback,this);
-    op_people_sub=n.subscribe<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 10, &PeopleMarker::openpose3d_callback,this);
-    //op_people_sub=n.subscribe<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 10, &PeopleMarker::openpose3d_callback,this);
+    //op_people_sub=n.subscribe<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 10, &filter_PeopleMarker::openpose3d_callback,this);
+    //people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
+    filter_people_sub=n.subscribe<geometry_msgs::PoseArray>("/openpose_filter_pose_array", 10, &filter_PeopleMarker::filter_people_callback,this);
     
-    people_marker_pub=n.advertise<visualization_msgs::MarkerArray>("/people_marker_array", 10, true);
-    people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
-    global_pos_sub= n.subscribe<geometry_msgs::PoseStamped>("/global_pose", 10,&PeopleMarker::global_pose_callback, this);
-    joint_states_sub= n.subscribe<sensor_msgs::JointState>("/hsrb/joint_states", 10,&PeopleMarker::joint_states_callback, this);
+    people_marker_pub=n.advertise<visualization_msgs::MarkerArray>("/people_filter_marker_array", 10, true);
+    //people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
+    global_pos_sub= n.subscribe<geometry_msgs::PoseStamped>("/global_pose", 10,&filter_PeopleMarker::global_pose_callback, this);
+    joint_states_sub= n.subscribe<sensor_msgs::JointState>("/hsrb/joint_states", 10,&filter_PeopleMarker::joint_states_callback, this);
 
     global_pose.resize(3,0.0);
     pre_global_pose.resize(3,0.0);
@@ -30,7 +30,7 @@ PeopleMarker::PeopleMarker() :
 }
 
 
-void PeopleMarker::createVisualisation(std::vector<geometry_msgs::Pose> poses) {
+void filter_PeopleMarker::createVisualisation(std::vector<geometry_msgs::Pose> poses) {
     ROS_DEBUG("Creating markers");
     visualization_msgs::MarkerArray marker_array;
     for(int i = 0; i < poses.size(); i++) {
@@ -40,7 +40,7 @@ void PeopleMarker::createVisualisation(std::vector<geometry_msgs::Pose> poses) {
     people_marker_pub.publish(marker_array);
 }
 
-std::vector<double> PeopleMarker::cartesianToPolar(geometry_msgs::Point point) {
+std::vector<double> filter_PeopleMarker::cartesianToPolar(geometry_msgs::Point point) {
     ROS_DEBUG("cartesianToPolar: Cartesian point: x: %f, y: %f, z %f", point.x, point.y, point.z);
     std::vector<double> output;
     double dist = sqrt(pow(point.x,2) + pow(point.y,2));
@@ -52,15 +52,11 @@ std::vector<double> PeopleMarker::cartesianToPolar(geometry_msgs::Point point) {
 }
 
 
-void PeopleMarker::openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3d::ConstPtr& msg)
+void filter_PeopleMarker::filter_people_callback(const geometry_msgs::PoseArray::ConstPtr& msg)
 {
-    //people_pose_array.clear();
-    //ROS_INFO("openpose_callback : people_size : %d", num_of_detected_human);
-    //for(size_t idx(0); i< msg->persons.size();idx++)
-        //people_pose_array.push_back(msg->persons[idx].avg_pose);
     
     marker_seq=0;
-    int num_of_detected_human=msg->persons.size();
+    int num_of_detected_human=msg->poses.size();
     std::vector<geometry_msgs::Pose> poseVector;
 
     //ROS_INFO("openpose_callback : people_size : %d", num_of_detected_human);
@@ -75,40 +71,14 @@ void PeopleMarker::openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3
     for(int i(0);i<num_of_detected_human;i++)
     {
 
-      //poseVector.push_back(msg->persons[i].avg_pose.pose);
-      
-      float pos_x = msg->persons[i].avg_pose.pose.position.x;
-      float pos_y = msg->persons[i].avg_pose.pose.position.y;
-      float pos_z = msg->persons[i].avg_pose.pose.position.z;
-      //ROS_INFO("pose push_back : people_size : %.3lf , y : %.3f,  z %.3f ", pos_x,pos_y,pos_z);
-      geometry_msgs::Vector3Stamped gV, tV;
-
-      gV.vector.x = pos_x;
-      gV.vector.y =pos_y;
-      gV.vector.z =pos_z;
-
-      //std::cout<<"x :"<<_x<<"_y:"<<_y<<"_z:"<<_z<<std::endl;
-      gV.header.stamp = ros::Time();
-      gV.header.frame_id = "/head_rgbd_sensor_rgb_frame";
-      listener.transformVector("/map", gV, tV);
-
-      geometry_msgs::Pose transformPos;
-      transformPos.position.x=tV.vector.x+global_pose[0];
-      transformPos.position.y=tV.vector.y+global_pose[1];
-      transformPos.position.z=0.5;
-      transformPos.orientation.x=0.0;
-      transformPos.orientation.y=0.0;
-      transformPos.orientation.z=0.0;
-      transformPos.orientation.w=1.0;
-
-      poseVector.push_back(transformPos);
+      poseVector.push_back(msg->poses[i]);
     }
   
-    //createVisualisation(poseVector);
-    publish_poses(poseVector);
+    createVisualisation(poseVector);
+    //publish_poses(poseVector);
 }
 
-void PeopleMarker::human_boxes_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)
+void filter_PeopleMarker::human_boxes_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)
 {
     marker_seq=0;
 
@@ -132,7 +102,7 @@ void PeopleMarker::human_boxes_callback(const visualization_msgs::MarkerArray::C
   
 }
 
-void PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)
+void filter_PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr& msg)
 {
 
 	Head_Pos[0]=msg->position[9];			//pan
@@ -155,7 +125,7 @@ void PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr
 
 }
 
-void PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){
+void filter_PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){
     
     if(IsHeadMoving || IsRobotMoving )
         return;
@@ -173,7 +143,7 @@ void PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){
     }
 }
 
-void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)
+void filter_PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstPtr& msg)
 {
 
     global_pose.resize(3);
@@ -210,7 +180,7 @@ void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstP
 
 
 
-geometry_msgs::Point PeopleMarker::generate_position(geometry_msgs::Point centre, double angle, double dx, double dy)
+geometry_msgs::Point filter_PeopleMarker::generate_position(geometry_msgs::Point centre, double angle, double dx, double dy)
 {
       float s = sin(angle);
       float c = cos(angle);
@@ -227,7 +197,7 @@ geometry_msgs::Point PeopleMarker::generate_position(geometry_msgs::Point centre
       return res;
 }
 
-geometry_msgs::Pose PeopleMarker::generate_extremity_position(geometry_msgs::Pose centre, double dx, double dy, double z) {
+geometry_msgs::Pose filter_PeopleMarker::generate_extremity_position(geometry_msgs::Pose centre, double dx, double dy, double z) {
     double angle = tf::getYaw(centre.orientation) + 3.141592/2;
     geometry_msgs::Point p = centre.position;
     p.z = z;
@@ -235,7 +205,7 @@ geometry_msgs::Pose PeopleMarker::generate_extremity_position(geometry_msgs::Pos
     return centre;
 }
 
-visualization_msgs::Marker PeopleMarker::createMarker(
+visualization_msgs::Marker filter_PeopleMarker::createMarker(
         int id,
         int type,
         int action,
@@ -257,7 +227,7 @@ visualization_msgs::Marker PeopleMarker::createMarker(
     return marker;
 }
 
-visualization_msgs::Marker PeopleMarker::createHead(
+visualization_msgs::Marker filter_PeopleMarker::createHead(
         int id,
         int action,
         geometry_msgs::Pose pose) {
@@ -274,7 +244,7 @@ visualization_msgs::Marker PeopleMarker::createHead(
     return createMarker(id, visualization_msgs::Marker::SPHERE, action, pose, scale, color);
 }
 
-visualization_msgs::Marker PeopleMarker::createBody(
+visualization_msgs::Marker filter_PeopleMarker::createBody(
         int id,
         int action,
         geometry_msgs::Pose pose) {
@@ -291,7 +261,7 @@ visualization_msgs::Marker PeopleMarker::createBody(
     return createMarker(id, visualization_msgs::Marker::CYLINDER, action, pose, scale, color);
 }
 
-std::vector<visualization_msgs::Marker> PeopleMarker::createLegs(
+std::vector<visualization_msgs::Marker> filter_PeopleMarker::createLegs(
         int idl, int idr,
         int action,
         geometry_msgs::Pose pose) {
@@ -310,7 +280,7 @@ std::vector<visualization_msgs::Marker> PeopleMarker::createLegs(
     return legs;
 }
 
-std::vector<visualization_msgs::Marker> PeopleMarker::createArms(
+std::vector<visualization_msgs::Marker> filter_PeopleMarker::createArms(
         int idl, int idr,
         int action,
         geometry_msgs::Pose pose) {
@@ -329,7 +299,7 @@ std::vector<visualization_msgs::Marker> PeopleMarker::createArms(
     return arms;
 }
 
-std::vector<visualization_msgs::Marker> PeopleMarker::createHuman(int id,geometry_msgs::Pose pose) {
+std::vector<visualization_msgs::Marker> filter_PeopleMarker::createHuman(int id,geometry_msgs::Pose pose) {
     std::vector<visualization_msgs::Marker> human;
     human.push_back(createHead(id++, visualization_msgs::Marker::ADD, pose));
     human.push_back(createBody(id++, visualization_msgs::Marker::ADD, pose));
@@ -344,7 +314,7 @@ std::vector<visualization_msgs::Marker> PeopleMarker::createHuman(int id,geometr
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "people_marker");
-    PeopleMarker* pl = new PeopleMarker();
+    ros::init(argc, argv, "filter_people_marker");
+    filter_PeopleMarker* pl = new filter_PeopleMarker();
     return 0;
 }

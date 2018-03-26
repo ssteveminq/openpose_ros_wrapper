@@ -117,15 +117,15 @@ openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const
 
 class MyPublisher
 {
-	public:
-	MyPublisher(void);
-	ros::Publisher publisher;
-	ros::Publisher image_skeleton_pub;
-	ros::Publisher pose_pub;
-	ros::Publisher pose_3d_pub;
-	ros::Publisher keypoints_pub;
-	ros::Publisher eye_pub;
-	ros::Subscriber pcl_sub;
+    public:
+    MyPublisher(void);
+    ros::Publisher publisher;
+    ros::Publisher image_skeleton_pub;
+    ros::Publisher pose_pub;
+    ros::Publisher pose_3d_pub;
+    ros::Publisher keypoints_pub;
+    ros::Publisher eye_pub;
+    ros::Subscriber pcl_sub;
 
     openpose_ros_wrapper_msgs::Persons persons;
     openpose_ros_wrapper_msgs::Persons3d persons_3d;
@@ -136,9 +136,9 @@ class MyPublisher
 
     void cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg);
 
-	void callback(const op::Array<float>&);
+    void callback(const op::Array<float>&);
 
-	std_msgs::Float32MultiArray msg;
+    std_msgs::Float32MultiArray msg;
     std::map<unsigned int, std::string> bodypartsmap;
 };
 
@@ -295,7 +295,7 @@ DEFINE_string(write_keypoint_json,      "",             "(Deprecated, use `write
 struct UserDatum : public op::Datum
 {
     bool boolThatUserNeedsForSomeReason;
-	int index;
+    int index;
 
     UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :
         boolThatUserNeedsForSomeReason{boolThatUserNeedsForSomeReason_}
@@ -320,27 +320,27 @@ public:
     std::shared_ptr<std::vector<UserDatum>> workProducer()
     {
 
-		pthread_mutex_lock(&buf_mutex);
-		if ( !buff_empty )
-		{
-			pthread_mutex_unlock(&buf_mutex);
-			return nullptr;
-		}
-		pthread_mutex_unlock(&buf_mutex);
+        pthread_mutex_lock(&buf_mutex);
+        if ( !buff_empty )
+        {
+            pthread_mutex_unlock(&buf_mutex);
+            return nullptr;
+        }
+        pthread_mutex_unlock(&buf_mutex);
 
-		ros::spinOnce();
+        ros::spinOnce();
 
         try
         {
             // Close program when empty frame
-			if ( cv_ptr == nullptr )
+            if ( cv_ptr == nullptr )
             {
 //                op::log("Last frame read and added to queue. Closing program after it is processed.",
 //                        op::Priority::High);
                 // This funtion stops this worker, which will eventually stop the whole thread system once all the
                 // frames have been processed
 //                this->stop();
-				sleep(1);
+                sleep(1);
                 return nullptr;
             }
             else
@@ -351,7 +351,7 @@ public:
                 auto& datum = datumsPtr->at(0);
 
                 // Fill datum
-				datum.index = mCounter++;
+                datum.index = mCounter++;
 
                 datum.cvInputData = cv_ptr->image; 
 
@@ -364,9 +364,9 @@ public:
                     datumsPtr = nullptr;
                 }
 
-				pthread_mutex_lock(&buf_mutex);
-				buff_empty = false;
-				pthread_mutex_unlock(&buf_mutex);
+                pthread_mutex_lock(&buf_mutex);
+                buff_empty = false;
+                pthread_mutex_unlock(&buf_mutex);
 
                 return datumsPtr;
             }
@@ -427,13 +427,13 @@ public:
 
     void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)
     {
-		pthread_mutex_lock(&buf_mutex);
-		if ( buff_empty )
-		{
-			pthread_mutex_unlock(&buf_mutex);
-			return;
-		}
-		pthread_mutex_unlock(&buf_mutex);
+        pthread_mutex_lock(&buf_mutex);
+        if ( buff_empty )
+        {
+            pthread_mutex_unlock(&buf_mutex);
+            return;
+        }
+        pthread_mutex_unlock(&buf_mutex);
         try
         {
             // User's displaying/saving/other processing here
@@ -514,19 +514,19 @@ public:
                 }
                 //op::log(" ");
 
-				mp.callback(poseKeypoints);
-				pthread_mutex_lock(&buf_mutex);
-				buff_empty = true;
-				pthread_mutex_unlock(&buf_mutex);
+                mp.callback(poseKeypoints);
+                pthread_mutex_lock(&buf_mutex);
+                buff_empty = true;
+                pthread_mutex_unlock(&buf_mutex);
 
                 // Display rendered output image
                 //cv::imshow("User worker GUI", datumsPtr->at(2).cvOutputData);
                 out_msg.image=datumsPtr->at(0).cvOutputData;
                 // Display image and sleeps at least 1 ms (it usually sleeps ~5-10 msec to display the image)
                 const char key = (char)cv::waitKey(1);
-				_count++;
+                _count++;
                 if (key == 27)
-//				sleep(5);
+//              sleep(5);
                     this->stop();
             }
         }
@@ -680,17 +680,17 @@ int openPoseTutorialWrapper2()
 void callback(const sensor_msgs::Image &img)
 {
     //ROS_INFO("hello");
-	try
-	{
-		cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
-		//cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
+    try
+    {
+        cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
+        //cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
 
-	}
-	catch (cv_bridge::Exception& e)
-	{
-		ROS_ERROR("cv_bridge exception: %s", e.what());
-		return;
-	}
+    }
+    catch (cv_bridge::Exception& e)
+    {
+        ROS_ERROR("cv_bridge exception: %s", e.what());
+        return;
+    }
 
 
     /*ToDo 
@@ -712,7 +712,7 @@ void callback(const sensor_msgs::Image &img)
 
 
 
-//	cout << "New image " << img.width << "x" << img.height << " " << img.data.size() << endl;
+//  cout << "New image " << img.width << "x" << img.height << " " << img.data.size() << endl;
 }
 
 MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)
@@ -733,7 +733,7 @@ void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){
 void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 {
     ros::Time t = ros::Time::now();
-//	openpose_wrapper::OpenPose msg;
+//  openpose_wrapper::OpenPose msg;
     //openpose_ros_wrapper_msgs::Persons persons;
     
     persons=openpose_ros_wrapper_msgs::Persons();
@@ -863,46 +863,46 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
     pose_3d_pub.publish(persons_3d);
  
 
-	//int numHuman = poseKeypoints.getSize(0);
-	//int numPart  = poseKeypoints.getSize(1);
-	//int numInfo  = poseKeypoints.getSize(2);
+    //int numHuman = poseKeypoints.getSize(0);
+    //int numPart  = poseKeypoints.getSize(1);
+    //int numInfo  = poseKeypoints.getSize(2);
 
-	//mp.msg.layout.dim.clear();
-	//mp.msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
-	//mp.msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
-	//mp.msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
-	//mp.msg.layout.dim[0].size = numHuman;
-	//mp.msg.layout.dim[0].stride = numPart*numInfo;
-	//mp.msg.layout.dim[0].label = "human";
-	//mp.msg.layout.dim[1].size = numPart;
-	//mp.msg.layout.dim[1].stride = numInfo;
-	//mp.msg.layout.dim[1].label = "body";
-	//mp.msg.layout.dim[2].size = numInfo;
-	//mp.msg.layout.dim[2].stride = 1;
-	//mp.msg.layout.dim[2].label = "info";
-	//mp.msg.data.resize(numHuman*numPart*numInfo);
+    //mp.msg.layout.dim.clear();
+    //mp.msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
+    //mp.msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
+    //mp.msg.layout.dim.push_back(std_msgs::MultiArrayDimension());
+    //mp.msg.layout.dim[0].size = numHuman;
+    //mp.msg.layout.dim[0].stride = numPart*numInfo;
+    //mp.msg.layout.dim[0].label = "human";
+    //mp.msg.layout.dim[1].size = numPart;
+    //mp.msg.layout.dim[1].stride = numInfo;
+    //mp.msg.layout.dim[1].label = "body";
+    //mp.msg.layout.dim[2].size = numInfo;
+    //mp.msg.layout.dim[2].stride = 1;
+    //mp.msg.layout.dim[2].label = "info";
+    //mp.msg.data.resize(numHuman*numPart*numInfo);
 
-	//op::log("DIM " + std::to_string(numHuman) + std::to_string(numPart) + std::to_string(numInfo));
-	//for (auto person = 0 ; person < poseKeypoints.getSize(0) ; person++)
-	//{
-		//op::log("Person " + std::to_string(person) + ": (x, y, score):");
-		//for (auto bodyPart = 0 ; bodyPart < poseKeypoints.getSize(1) ; bodyPart++)
-		//{
-			//float x, y, p;
+    //op::log("DIM " + std::to_string(numHuman) + std::to_string(numPart) + std::to_string(numInfo));
+    //for (auto person = 0 ; person < poseKeypoints.getSize(0) ; person++)
+    //{
+        //op::log("Person " + std::to_string(person) + ": (x, y, score):");
+        //for (auto bodyPart = 0 ; bodyPart < poseKeypoints.getSize(1) ; bodyPart++)
+        //{
+            //float x, y, p;
 
-			//x = poseKeypoints[{person, bodyPart, 0}];
-			//y = poseKeypoints[{person, bodyPart, 1}];
-			//p = poseKeypoints[{person, bodyPart, 2}];
+            //x = poseKeypoints[{person, bodyPart, 0}];
+            //y = poseKeypoints[{person, bodyPart, 1}];
+            //p = poseKeypoints[{person, bodyPart, 2}];
 
 //#if 0
 //#else
-			//mp.msg.data[person*numPart*numInfo + bodyPart*numInfo + 0 ] = x;
-			//mp.msg.data[person*numPart*numInfo + bodyPart*numInfo + 1 ] = y;
-			//mp.msg.data[person*numPart*numInfo + bodyPart*numInfo + 2 ] = p;
+            //mp.msg.data[person*numPart*numInfo + bodyPart*numInfo + 0 ] = x;
+            //mp.msg.data[person*numPart*numInfo + bodyPart*numInfo + 1 ] = y;
+            //mp.msg.data[person*numPart*numInfo + bodyPart*numInfo + 2 ] = p;
 //#endif
-		//}
-	//}
-	//publisher.publish(mp.msg);
+        //}
+    //}
+    //publisher.publish(mp.msg);
 
 //#####################################################################################3
 
@@ -919,12 +919,12 @@ int main(int argc, char *argv[])
 {
     gflags::ParseCommandLineFlags(&argc, &argv, true);
 
-	ros::init(argc, argv, "openpose_wrapper");
-	ros::NodeHandle nh;
+    ros::init(argc, argv, "openpose_wrapper");
+    ros::NodeHandle nh;
 
-	ros::start();
-//	mp.publisher = nh.advertise<openpose_wrapper::OpenPose>("openpose_human_body", 1000);
-	mp.publisher = nh.advertise<std_msgs::Float32MultiArray>("openpose_human_body", 1000);
+    ros::start();
+//  mp.publisher = nh.advertise<openpose_wrapper::OpenPose>("openpose_human_body", 1000);
+    mp.publisher = nh.advertise<std_msgs::Float32MultiArray>("openpose_human_body", 1000);
     mp.image_skeleton_pub = nh.advertise<sensor_msgs::Image>( "/openpose_ros/detected_poses_image", 1 );  
     mp.pose_pub = nh.advertise<openpose_ros_wrapper_msgs::Persons>("/openpose/pose", 2);
     mp.pose_3d_pub = nh.advertise<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 2);
@@ -932,16 +932,16 @@ int main(int argc, char *argv[])
     mp.eye_pub = nh.advertise<openpose_ros_wrapper_msgs::EyeDetection>( "/openpose_ros/eye_detections" , 0 );
     mp.pcl_sub= nh.subscribe<sensor_msgs::PointCloud2>("/hsrb/head_rgbd_sensor/depth_registered/rectified_points", 10,
                                        &MyPublisher::cloud_callback, &mp);
-	ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
-	//ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
-	cout << "Subscribed" << endl;
+    ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
+    //ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
+    cout << "Subscribed" << endl;
 
     // Parsing command line flags
 
     // Running openPoseTutorialWrapper2
     openPoseTutorialWrapper2();
 
-	ros::shutdown();
+    ros::shutdown();
 
-	return 0;
+    return 0;
 }

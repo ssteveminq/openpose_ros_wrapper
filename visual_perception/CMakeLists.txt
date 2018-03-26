@@ -68,17 +68,20 @@ add_library(visual_perception
 ## Declare a cpp executable
 add_executable(visible_manager src/visible_region.cpp)
 add_executable(people_marker src/people_marker.cpp)
+add_executable(filter_people_marker src/filter_people_marker.cpp)
 
 
 
 ## Add cmake target dependencies of the executable/library
 add_dependencies(visible_manager visual_perception ${catkin_EXPORTED_TARGETS})
 add_dependencies(people_marker ${catkin_EXPORTED_TARGETS})
+add_dependencies(filter_people_marker ${catkin_EXPORTED_TARGETS})
 
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(visible_manager visual_perception ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${BFL_LIBRARIES})
 target_link_libraries(people_marker ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${BFL_LIBRARIES})
+target_link_libraries(filter_people_marker ${catkin_LIBRARIES} ${Boost_LIBRARIES} ${BFL_LIBRARIES})
 
 
 install(TARGETS ${PROJECT_NAME}
