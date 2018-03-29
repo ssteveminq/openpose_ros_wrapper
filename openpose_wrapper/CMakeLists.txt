@@ -12,6 +12,7 @@ set(FLTK_DIR "/usr/lib/fltk")
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   cv_bridge
+  message_filters
   sensor_msgs
   image_transport
   openpose_ros_wrapper_msgs
@@ -21,6 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
 )
 
+find_package(Boost REQUIRED COMPONENTS thread)
 find_package(GFlags REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenPose REQUIRED)
@@ -29,7 +31,7 @@ find_package(PCL 1.7 REQUIRED)
 message(STATUS "EIGEN ${EIGEN3_INCLUDE_DIRS}")
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+ #find_package(Boost REQUIRED COMPONENTS system)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -150,6 +152,8 @@ include_directories(
 add_executable(${PROJECT_NAME}_node src/${PROJECT_NAME}_node.cpp)
 add_executable(${PROJECT_NAME}_3d_node src/${PROJECT_NAME}_3d_node.cpp)
 
+add_executable(${PROJECT_NAME}_nico_node src/${PROJECT_NAME}_nico_node.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -167,6 +171,7 @@ target_link_libraries(${PROJECT_NAME}_node
   ${OpenCV_LIBS}
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${Boost_LIBRARIES}
 )
 
 target_link_libraries(${PROJECT_NAME}_3d_node
@@ -175,6 +180,16 @@ target_link_libraries(${PROJECT_NAME}_3d_node
   ${OpenCV_LIBS}
   ${catkin_LIBRARIES}
   ${PCL_LIBRARIES}
+  ${Boost_LIBRARIES}
+)
+
+target_link_libraries(${PROJECT_NAME}_nico_node
+  ${OpenPose_LIBS}
+  ${GFLAGS_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${catkin_LIBRARIES}
+  ${PCL_LIBRARIES}
+  ${Boost_LIBRARIES}
 )
 
 #############

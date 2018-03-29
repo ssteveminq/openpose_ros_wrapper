@@ -67,6 +67,12 @@ typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2
 #define CAMERA_PIXEL_HEIGHT 480
 
 //#include <openpose_ros_msgs/.h>
+static std_msgs::Header h;
+static std_msgs::Header h_min;
+static std_msgs::Header h_temp;
+std::vector <pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clouds;
+std::vector <std_msgs::Header> headers;
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_temp (new pcl::PointCloud<pcl::PointXYZRGB>);
 
 cv_bridge::CvImagePtr cv_ptr;
 cv_bridge::CvImage out_msg;
@@ -117,6 +123,8 @@ openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const
 //}
 
 
+
+
 class MyPublisher
 {
     public:
@@ -133,6 +141,7 @@ class MyPublisher
     openpose_ros_wrapper_msgs::Persons3d persons_3d;
     //point_cloud   
    
+    sensor_msgs::PointCloud2 pCloud;
     pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; 
 
     void cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg);
@@ -355,7 +364,21 @@ public:
                 datum.index = mCounter++;
 
                 datum.cvInputData = cv_ptr->image; 
-               
+                   h.stamp.sec = cv_ptr->header.stamp.sec;
+        
+          //float cur_time_stamp = cv_ptr->header.stamp;
+
+   for (int it = 0 ; it < headers.size(); ++it)
+    {
+    ROS_INFO("tim stamped : %.3lf , h stamp : %.3lf", headers[it].stamp, h.stamp);
+    if(headers[it].stamp == h.stamp)
+     {
+      cloud_temp = clouds[it];
+      h_temp.stamp = ros::Time::now();
+      break;
+     }
+    }
+ 
 
                 // If empty frame -> return nullptr
                 if (datum.cvInputData.empty())
@@ -447,21 +470,20 @@ public:
                 //op::log("\nKeypoints for " + std::to_string(datumsPtr->at(0).index) + " :");
                 // Accesing each element of the keypoints
                 const auto& poseKeypoints = datumsPtr->at(0).poseKeypoints;
-                 //op::log("Person pose keypoints:");
-                 //for (auto person = 0 ; person < poseKeypoints.getSize(0) ; person++)
-                 //{
-                     //op::log("Person " + std::to_string(person) + " (x, y, score):");
-                     //for (auto bodyPart = 0 ; bodyPart < poseKeypoints.getSize(1) ; bodyPart++)
-                     //{
-                         //std::string valueToPrint;
-                         //for (auto xyscore = 0 ; xyscore < poseKeypoints.getSize(2) ; xyscore++)
-                         //{
-                             //valueToPrint += std::to_string(   poseKeypoints[{person, bodyPart, xyscore}]   ) + " ";
-                         //}
-                         //op::log(valueToPrint);
-                     //}
-                 //}
-                 //
+                 op::log("Person pose keypoints:");
+                 for (auto person = 0 ; person < poseKeypoints.getSize(0) ; person++)
+                 {
+                     op::log("Person " + std::to_string(person) + " (x, y, score):");
+                     for (auto bodyPart = 0 ; bodyPart < poseKeypoints.getSize(1) ; bodyPart++)
+                     {
+                         std::string valueToPrint;
+                         for (auto xyscore = 0 ; xyscore < poseKeypoints.getSize(2) ; xyscore++)
+                         {
+                             valueToPrint += std::to_string(   poseKeypoints[{person, bodyPart, xyscore}]   ) + " ";
+                         }
+                         op::log(valueToPrint);
+                     }
+                 }
                 //op::log(" ");
                 // Alternative: just getting std::string equivalent
                 //op::log("Face keypoints: " + datumsPtr->at(0).faceKeypoints.toString());
@@ -683,29 +705,18 @@ int openPoseTutorialWrapper2()
 
 
 
-void sync_callback(const sensor_msgs::PointCloud2ConstPtr& cloud_msg, const sensor_msgs::ImageConstPtr& image_msg)
+
+void pointcloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg)
 {
 
-    //ROS_INFO("syncronized callback");
-    //ROS_INFO("cloud time stamp :L %f ", cloud_msg->header.stamp.toSec());
-    //ROS_INFO("image time stamp :L %f ", image_msg->header.stamp.toSec());
+    //ROS_INFO("cloud callback");
+    //pcl::fromROSMsg(*msg, *cloud);
 
-    //ROS_INFO("syncronized callback");
-    //image subscriber
-    try
-    {
-        cv_ptr = cv_bridge::toCvCopy(image_msg, sensor_msgs::image_encodings::BGR8);
 
-    }
-    catch (cv_bridge::Exception& e)
-    {
-        ROS_ERROR("cv_bridge exception: %s", e.what());
-        return;
-    }
-
-    //save to pointcloud
-    pcl::fromROSMsg(*cloud_msg, *(mp.cloud));
 }
+
+
+
 
 
 
@@ -714,8 +725,11 @@ void callback(const sensor_msgs::Image &img)
     
     try
     {
+        ROS_INFO("hello");
         cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
 
+
+        //cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
 
     }
     catch (cv_bridge::Exception& e)
@@ -747,7 +761,6 @@ void callback(const sensor_msgs::Image &img)
 //  cout << "New image " << img.width << "x" << img.height << " " << img.data.size() << endl;
 }
 
-//MyPublisher::MyPublisher(void)
 MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)
 {
     
@@ -758,15 +771,32 @@ MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)
 
 void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){
 
-    //ROS_INFO("cloud callback");
+    ROS_INFO("cloud callback");
     pcl::fromROSMsg(*msg, *cloud);
 
+    h_min.stamp = msg->header.stamp;
+
+    if (h_min.stamp.sec >h_temp.stamp.sec )
+    {
+        for (int it = 0 ; it < clouds.size(); ++it)
+           {
+             clouds[it]->clear();
+           } 
+        clouds.clear();
+        headers.clear();
+    }
+    else
+    {
+        clouds.push_back(cloud);
+        headers.push_back(h_min);
+    }
+    //ROS_INFO("cloud size: %d  callback", static_cast<int>(cloud->points.size()));
 }
 
 void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 {
     ros::Time t = ros::Time::now();
-    //ROS_INFO("My publisher callback");
+    ROS_INFO("My publisher callback");
 //  openpose_wrapper::OpenPose msg;
     //openpose_ros_wrapper_msgs::Persons persons;
     
@@ -779,9 +809,11 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
     persons_3d.rostime = t;
     persons_3d.image_w = 640;
     persons_3d.image_h = 480;
-
-   //if(cloud_temp->points.size() == 0)
-       //return;
+         
+  
+    if(cloud_temp->points.size() == 0)
+       std::cout<<" Cloud temp is empty " << std::endl;
+        return;
 //copied 
 
 // original msgs_mk
@@ -832,16 +864,16 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
                 float point_x=0.0;
                 float point_y=0.0;
 
-                if ((point_idx<0) || (!pcl::isFinite(cloud->points[point_idx]))){
+                if ((point_idx<0) || (!pcl::isFinite(cloud_temp->points[point_idx]))){
                     continue;
                 }
                 else{
 
-                   if(cloud->points[point_idx].z) 
+                   if(cloud_temp->points[point_idx].z) 
                    {
-                       point_x = cloud->points[point_idx].x;
-                       point_y = cloud->points[point_idx].y;
-                       point_z = cloud->points[point_idx].z;
+                       point_x = cloud_temp->points[point_idx].x;
+                       point_y = cloud_temp->points[point_idx].y;
+                       point_z = cloud_temp->points[point_idx].z;
 
                    }
                     //ROS_INFO("bodyparpoint x : %d , y: %d , point idx :%d , point_z : %.3f ",bodypart_3d.x, bodypart_3d.y, point_idx, point_z);
@@ -956,6 +988,8 @@ int main(int argc, char *argv[])
     ros::init(argc, argv, "openpose_wrapper");
     ros::NodeHandle nh;
 
+    h_min.stamp = ros::Time::now();
+    h.stamp = ros::Time::now();
 
     ros::start();
 //  mp.publisher = nh.advertise<openpose_wrapper::OpenPose>("openpose_human_body", 1000);
@@ -965,20 +999,14 @@ int main(int argc, char *argv[])
     mp.pose_3d_pub = nh.advertise<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 2);
     mp.keypoints_pub = nh.advertise<openpose_ros_msgs::PersonDetection>( "/openpose_ros/skeleton_3d/detected_poses_keypoints" , 0 );
     mp.eye_pub = nh.advertise<openpose_ros_wrapper_msgs::EyeDetection>( "/openpose_ros/eye_detections" , 0 );
-
-    //mp.pcl_sub= nh.subscribe<sensor_msgs::PointCloud2>("/hsrb/head_rgbd_sensor/depth_registered/rectified_points", 10,
-                                       //&MyPublisher::cloud_callback, &mp);
+    mp.pcl_sub= nh.subscribe<sensor_msgs::PointCloud2>("/hsrb/head_rgbd_sensor/depth_registered/rectified_points", 10,
+                                       &MyPublisher::cloud_callback, &mp);
     //ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
-    //ros::Subscriber subscriber = nh.subscribe( "/hsrb/head_rgbd_sensor/rgb/image_raw", 1, callback);
+    ros::Subscriber subscriber = nh.subscribe( "/hsrb/head_rgbd_sensor/rgb/image_raw", 1, callback);
     //ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
-    
-    message_filters::Subscriber<sensor_msgs::Image> hsr_image_sub(nh,"/hsrb/head_rgbd_sensor/rgb/image_raw", 1);
-    message_filters::Subscriber<sensor_msgs::PointCloud2> hsr_pcl_sub(nh,"/hsrb/head_rgbd_sensor/depth_registered/rectified_points",1);
 
-    message_filters::Synchronizer<MySyncPolicy> sync(MySyncPolicy(10),hsr_pcl_sub,hsr_image_sub);
-    sync.registerCallback(boost::bind(&sync_callback,_1,_2));
+    cout << "Subscribed" << endl;
 
-    //cout << "Subscribed" << endl;
     // Parsing command line flags
 
     // Running openPoseTutorialWrapper2
