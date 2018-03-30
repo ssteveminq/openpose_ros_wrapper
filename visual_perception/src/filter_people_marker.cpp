@@ -14,7 +14,7 @@ filter_PeopleMarker::filter_PeopleMarker() :
     // listener = new tf::TransformListener();
     //op_people_sub=n.subscribe<openpose_ros_wrapper_msgs::Persons3d>("/openpose/pose_3d", 10, &filter_PeopleMarker::openpose3d_callback,this);
     //people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
-    filter_people_sub=n.subscribe<geometry_msgs::PoseArray>("/openpose_filter_pose_array", 10, &filter_PeopleMarker::filter_people_callback,this);
+    //filter_people_sub=n.subscribe<geometry_msgs::PoseArray>("/openpose_filter_pose_array", 10, &filter_PeopleMarker::filter_people_callback,this);
     
     people_marker_pub=n.advertise<visualization_msgs::MarkerArray>("/people_filter_marker_array", 10, true);
     //people_pose_pub=n.advertise<geometry_msgs::PoseArray>("/openpose_pose_array", 10, true);
@@ -127,10 +127,13 @@ void filter_PeopleMarker::joint_states_callback(const sensor_msgs::JointState::C
 
 void filter_PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){
     
+    ROS_INFO("publishposes");
     if(IsHeadMoving || IsRobotMoving )
         return;
     else
     {
+
+        ROS_INFO("publish poses!!!");
         geometry_msgs::PoseArray poses_array_msg;
 
         poses_array_msg.header.frame_id =target_frame;

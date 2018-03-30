@@ -148,7 +148,7 @@ void PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr
 
 	//ROS_INFO("Head moving : %.3lf",head_vel);
 
-    if(head_vel>0.015)
+    if(head_vel>0.012)
         IsHeadMoving=true;
     else
         IsHeadMoving=false;
@@ -196,7 +196,7 @@ void PeopleMarker::global_pose_callback(const geometry_msgs::PoseStamped::ConstP
 
     //ROS_INFO("robot is moving : %.3lf", move_distance);
 
-    if(move_distance>0.008)
+    if(move_distance>0.007)
         IsRobotMoving=true;
     else
         IsRobotMoving=false;

@@ -1,4 +1,3 @@
-// ------------------------- OpenPose Library Tutorial - Wrapper - Example 2 - Synchronous -------------------------
 // Synchronous mode: ideal for performance. The user can add his own frames producer / post-processor / consumer to the OpenPose wrapper or use the
 // default ones.
 
@@ -70,6 +69,7 @@ typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2
 static std_msgs::Header h;
 static std_msgs::Header h_min;
 static std_msgs::Header h_temp;
+int a;
 std::vector <pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clouds;
 std::vector <std_msgs::Header> headers;
 pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_temp (new pcl::PointCloud<pcl::PointXYZRGB>);
@@ -364,20 +364,21 @@ public:
                 datum.index = mCounter++;
 
                 datum.cvInputData = cv_ptr->image; 
-                   h.stamp.sec = cv_ptr->header.stamp.sec;
-        
+               
           //float cur_time_stamp = cv_ptr->header.stamp;
-
-   for (int it = 0 ; it < headers.size(); ++it)
-    {
-    ROS_INFO("tim stamped : %.3lf , h stamp : %.3lf", headers[it].stamp, h.stamp);
-    if(headers[it].stamp == h.stamp)
-     {
-      cloud_temp = clouds[it];
-      h_temp.stamp = ros::Time::now();
-      break;
-     }
-    }
+            ROS_INFO("h stamp is : %.3lf" , h.stamp);
+            std::cout<<h.stamp<< " is the stamp of h seee !!!!!!!"<<std::endl;
+            ros::Duration d(0.25);
+            for (int it = 0 ; it < headers.size(); ++it)
+             {std::cout<<it<< " eme stamp value in the headers vector : "<< headers[it].stamp<<std::endl;
+        
+             if(headers[it].stamp - h.stamp < d)
+               {
+                 cloud_temp = clouds[it];
+                 h_temp.stamp = ros::Time::now();
+                 break;
+               }
+             }
  
 
                 // If empty frame -> return nullptr
@@ -727,8 +728,12 @@ void callback(const sensor_msgs::Image &img)
     {
         ROS_INFO("hello");
         cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
-
-
+        cv_ptr->header=img.header;
+         h.stamp = cv_ptr->header.stamp;
+         
+        std::cout<<"stamp of h "<<h.stamp<<std::endl;
+        
+        std::cout<<"stamp of header of cv ptr "<<cv_ptr->header.stamp<<std::endl;
         //cv_ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::BGR8);
 
     }
@@ -771,13 +776,14 @@ MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)
 
 void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){
 
-    ROS_INFO("cloud callback");
+    ROS_INFO("clouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuud callback");
     pcl::fromROSMsg(*msg, *cloud);
 
     h_min.stamp = msg->header.stamp;
-
-    if (h_min.stamp.sec >h_temp.stamp.sec )
+    std::cout << h_min.stamp << " was h_min and here is h_temp "<< h_temp.stamp<<std::endl;
+    if (h_min.stamp >h_temp.stamp &&  a ==0 )
     {
+        a=1;
         for (int it = 0 ; it < clouds.size(); ++it)
            {
              clouds[it]->clear();
@@ -787,6 +793,8 @@ void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){
     }
     else
     {
+        a=0;
+        h_temp.stamp = ros::Time::now();
         clouds.push_back(cloud);
         headers.push_back(h_min);
     }
@@ -812,8 +820,9 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
          
   
     if(cloud_temp->points.size() == 0)
-       std::cout<<" Cloud temp is empty " << std::endl;
-        return;
+    { std::cout<<" Cloud temp is empty " << std::endl;
+         std::cout << " size of headers is " << headers.size()<<std::endl;
+        return;}
 //copied 
 
 // original msgs_mk
@@ -990,7 +999,7 @@ int main(int argc, char *argv[])
 
     h_min.stamp = ros::Time::now();
     h.stamp = ros::Time::now();
-
+    a=1;
     ros::start();
 //  mp.publisher = nh.advertise<openpose_wrapper::OpenPose>("openpose_human_body", 1000);
     mp.publisher = nh.advertise<std_msgs::Float32MultiArray>("openpose_human_body", 1000);
