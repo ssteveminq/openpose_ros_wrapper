@@ -523,14 +523,15 @@ public:
                 pthread_mutex_unlock(&buf_mutex);
 
                 // Display rendered output image
-                //cv::imshow("User worker GUI", datumsPtr->at(2).cvOutputData);
+                //cv::imshow("User worker GUI", datumsPtr->at(0).cvOutputData);
                 out_msg.image=datumsPtr->at(0).cvOutputData;
                 // Display image and sleeps at least 1 ms (it usually sleeps ~5-10 msec to display the image)
                 const char key = (char)cv::waitKey(1);
                 _count++;
                 if (key == 27)
-//              sleep(5);
+                {   //sleep(5);
                     this->stop();
+                }
             }
         }
         catch (const std::exception& e)
@@ -766,7 +767,6 @@ void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){
 void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 {
     ros::Time t = ros::Time::now();
-    //ROS_INFO("My publisher callback");
 //  openpose_wrapper::OpenPose msg;
     //openpose_ros_wrapper_msgs::Persons persons;
     
@@ -791,8 +791,6 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 
     std::vector<int> num_count(3,0);
     std::vector<float> mean_dist(3,0.0);
-    //int z_count =0;
-    //float mean_z =0.0;
 
     for(size_t person_idx = 0; person_idx < num_people; person_idx++) {
         openpose_ros_wrapper_msgs::PersonDetection person;
@@ -941,11 +939,11 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 //#####################################################################################3
 
     //publish image
-    sensor_msgs::Image ros_image;
-    out_msg.encoding =sensor_msgs::image_encodings::RGB8;
-    image_skeleton_pub.publish(out_msg.toImageMsg());
+    //sensor_msgs::Image ros_image;
+    //out_msg.encoding =sensor_msgs::image_encodings::BGR8;
+    //image_skeleton_pub.publish(out_msg.toImageMsg());
 
-    eye_pub.publish(eye_msg);
+    //eye_pub.publish(eye_msg);
 
 }
 
@@ -955,7 +953,6 @@ int main(int argc, char *argv[])
 
     ros::init(argc, argv, "openpose_wrapper");
     ros::NodeHandle nh;
-
 
     ros::start();
 //  mp.publisher = nh.advertise<openpose_wrapper::OpenPose>("openpose_human_body", 1000);
@@ -972,7 +969,8 @@ int main(int argc, char *argv[])
     //ros::Subscriber subscriber = nh.subscribe( "/hsrb/head_rgbd_sensor/rgb/image_raw", 1, callback);
     //ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);
     
-    message_filters::Subscriber<sensor_msgs::Image> hsr_image_sub(nh,"/hsrb/head_rgbd_sensor/rgb/image_raw", 1);
+    //message_filters::Subscriber<sensor_msgs::Image> hsr_image_sub(nh,"/hsrb/head_rgbd_sensor/rgb/image_raw", 1);
+    message_filters::Subscriber<sensor_msgs::Image> hsr_image_sub(nh,FLAGS_image_dir, 1);
     message_filters::Subscriber<sensor_msgs::PointCloud2> hsr_pcl_sub(nh,"/hsrb/head_rgbd_sensor/depth_registered/rectified_points",1);
 
     message_filters::Synchronizer<MySyncPolicy> sync(MySyncPolicy(10),hsr_pcl_sub,hsr_image_sub);
