@@ -6,7 +6,7 @@ HCRL version of openpose_ros_wrapper
 # Todo 
 
 - group eye
-- people orientation
-- ros_msgs
+- people (head) orientation
+- clean msgs files 
 
 
