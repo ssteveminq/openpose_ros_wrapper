@@ -104,7 +104,7 @@ void PeopleMarker::openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3
       poseVector.push_back(transformPos);
     }
   
-    //createVisualisation(poseVector);
+    createVisualisation(poseVector);
     publish_poses(poseVector);
 }
 
