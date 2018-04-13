@@ -9,4 +9,5 @@ HCRL version of openpose_ros_wrapper
 - people (head) orientation
 - clean msgs files 
 
-
+# Author
+Minkyu Kim (steveminq@utexas.edu)
