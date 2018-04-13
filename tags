@@ -4,6 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACUTE1	activity_detection/scripts/activityDetection_action.py	/^ACUTE1 = 45$/;"	v
+ACUTE2	activity_detection/scripts/activityDetection_action.py	/^ACUTE2 = 80$/;"	v
+ActivityDetection_Action	activity_detection/scripts/activityDetection_action.py	/^class ActivityDetection_Action:$/;"	c
 AddPoint	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^geometry_msgs::Point AddPoint(const openpose_ros_msgs::BodypartDetection_3d bodypart){$/;"	f
 Average	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^double Average(std::vector<double> v)$/;"	f
 BASE_LINK	visual_perception/include/filter_people_marker.h	32;"	d
@@ -66,6 +69,15 @@ LASER_ANGLE_STEP	visual_perception/include/humantracking.h	58;"	d
 LASER_Data_Length	visual_perception/include/humantracking.h	52;"	d
 LASER_Dist_person	visual_perception/include/visible_region.h	36;"	d
 LASER_Point_Step	visual_perception/include/humantracking.h	53;"	d
+LAYING_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^LAYING_THRESHOLD = 1.2$/;"	v
+L_ANKLE	activity_detection/scripts/activityDetection_action.py	/^L_ANKLE = 13$/;"	v
+L_EAR	activity_detection/scripts/activityDetection_action.py	/^L_EAR = 17$/;"	v
+L_ELBOW	activity_detection/scripts/activityDetection_action.py	/^L_ELBOW = 6$/;"	v
+L_EYE	activity_detection/scripts/activityDetection_action.py	/^L_EYE = 15$/;"	v
+L_HIP	activity_detection/scripts/activityDetection_action.py	/^L_HIP = 11$/;"	v
+L_KNEE	activity_detection/scripts/activityDetection_action.py	/^L_KNEE = 12$/;"	v
+L_SHOULDER	activity_detection/scripts/activityDetection_action.py	/^L_SHOULDER= 5$/;"	v
+L_WRIST	activity_detection/scripts/activityDetection_action.py	/^L_WRIST = 7$/;"	v
 Last_Head_vel	visual_perception/include/humantracking.h	/^	std::vector<double> Last_Head_vel;				\/\/x,y,theta$/;"	m	class:Human_Belief
 Last_detected_human	visual_perception/include/humantracking.h	/^	std::vector< std::vector< double > > Last_detected_human;$/;"	m	class:Human_Belief
 MATH_PI	visual_perception/include/humantracking.h	40;"	d
@@ -73,8 +85,6 @@ MATH_PI	visual_perception/include/visible_region.h	34;"	d
 MAX_UPDATE_ITER	visual_perception/include/humantracking.h	49;"	d
 MAX_VIEW_UPDATE_ITER	visual_perception/include/humantracking.h	50;"	d
 MODEL_POSE	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	71;"	d	file:
-MyPublisher	openpose_wrapper/src/3d_backup.cpp	/^MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)$/;"	f	class:MyPublisher
-MyPublisher	openpose_wrapper/src/3d_backup.cpp	/^class MyPublisher$/;"	c	file:
 MyPublisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)$/;"	f	class:MyPublisher
 MyPublisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class MyPublisher$/;"	c	file:
 MyPublisher	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^MyPublisher::MyPublisher(void):cloud(new pcl::PointCloud<pcl::PointXYZRGB>)$/;"	f	class:MyPublisher
@@ -84,9 +94,14 @@ MyPublisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class MyPublisher$/
 MySyncPolicy	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2, sensor_msgs::Image> MySyncPolicy;$/;"	t	file:
 MySyncPolicy	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2, sensor_msgs::Image> MySyncPolicy;$/;"	t	file:
 MySyncPolicy	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::PointCloud2, sensor_msgs::Image> MySyncPolicy;$/;"	t	file:
+NECK	activity_detection/scripts/activityDetection_action.py	/^NECK = 1$/;"	v
 NET_RES_X	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	63;"	d	file:
 NET_RES_Y	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	64;"	d	file:
+NODES	activity_detection/scripts/activityDetection_action.py	/^NODES = 18$/;"	v
+NOSE	activity_detection/scripts/activityDetection_action.py	/^NOSE = 0$/;"	v
 NotUpdatedCameraregion	visual_perception/src/humantracking.cpp	/^bool Human_Belief::NotUpdatedCameraregion(int idx)$/;"	f	class:Human_Belief
+OBTUSE1	activity_detection/scripts/activityDetection_action.py	/^OBTUSE1 = 100$/;"	v
+OBTUSE2	activity_detection/scripts/activityDetection_action.py	/^OBTUSE2 = 135$/;"	v
 OUTPUT_RES_X	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	67;"	d	file:
 OUTPUT_RES_Y	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	68;"	d	file:
 OnceTargeted	visual_perception/include/humantracking.h	/^	bool OnceTargeted;$/;"	m	class:Human_Belief
@@ -102,9 +117,18 @@ Publish_beliefmap	visual_perception/src/humantracking.cpp	/^void Human_Belief::P
 Publish_human_boxes	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_human_boxes()$/;"	f	class:Human_Belief
 Publish_human_target	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_human_target()$/;"	f	class:Human_Belief
 Publish_nav_target	visual_perception/src/humantracking.cpp	/^void Human_Belief::Publish_nav_target()$/;"	f	class:Human_Belief
+R_ANKLE	activity_detection/scripts/activityDetection_action.py	/^R_ANKLE = 10$/;"	v
+R_EAR	activity_detection/scripts/activityDetection_action.py	/^R_EAR = 16$/;"	v
+R_ELBOW	activity_detection/scripts/activityDetection_action.py	/^R_ELBOW = 3$/;"	v
+R_EYE	activity_detection/scripts/activityDetection_action.py	/^R_EYE = 14$/;"	v
+R_HIP	activity_detection/scripts/activityDetection_action.py	/^R_HIP = 8$/;"	v
+R_KNEE	activity_detection/scripts/activityDetection_action.py	/^R_KNEE = 9$/;"	v
+R_SHOULDER	activity_detection/scripts/activityDetection_action.py	/^R_SHOULDER =2$/;"	v
+R_WRIST	activity_detection/scripts/activityDetection_action.py	/^R_WRIST = 4$/;"	v
 Robot_Pos	visual_perception/include/humantracking.h	/^	std::vector<double> Robot_Pos;				\/\/x,y,theta$/;"	m	class:Human_Belief
 RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        RosImgSub(const std::string& image_topic): it_(nh_)$/;"	f	class:RosImgSub
 RosImgSub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^class RosImgSub$/;"	c	file:
+STANDING_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^STANDING_THRESHOLD = 0.45$/;"	v
 Same_POS_diff	visual_perception/include/humantracking.h	48;"	d
 Scaled_map	visual_perception/include/visible_region.h	/^  nav_msgs::OccupancyGrid Scaled_map;$/;"	m	class:visible_manager
 Scaled_static_map_sub	visual_perception/include/visible_region.h	/^  ros::Subscriber Scaled_static_map_sub;$/;"	m	class:visible_manager
@@ -114,61 +138,55 @@ SubscribeAndPublish	references/openpose_ros/skeleton_extract_3d/src/skeleton_ext
 Target_Dist_person	visual_perception/include/visible_region.h	35;"	d
 Track_human_target	visual_perception/include/humantracking.h	/^	std::vector<double> Track_human_target;				\/\/x,y,theta$/;"	m	class:Human_Belief
 UpdateTarget	visual_perception/src/humantracking.cpp	/^void Human_Belief::UpdateTarget()$/;"	f	class:Human_Belief
-UserDatum	openpose_wrapper/src/3d_backup.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
-UserDatum	openpose_wrapper/src/3d_backup.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
 UserDatum	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
 UserDatum	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
 UserDatum	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
 UserDatum	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
 UserDatum	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    UserDatum(const bool boolThatUserNeedsForSomeReason_ = false) :$/;"	f	struct:UserDatum
 UserDatum	openpose_wrapper/src/openpose_wrapper_node.cpp	/^struct UserDatum : public op::Datum$/;"	s	file:
-WUserInput	openpose_wrapper/src/3d_backup.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
-WUserInput	openpose_wrapper/src/3d_backup.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserInput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
 WUserInput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserInput	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
 WUserInput	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserInput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    WUserInput(const std::string& directoryPath) :$/;"	f	class:WUserInput
 WUserInput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUserInput : public op::WorkerProducer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
-WUserOutput	openpose_wrapper/src/3d_backup.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserOutput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserOutput	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserOutput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUserOutput : public op::WorkerConsumer<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
-WUserPostProcessing	openpose_wrapper/src/3d_backup.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
-WUserPostProcessing	openpose_wrapper/src/3d_backup.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
 WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
 WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
 WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    WUserPostProcessing()$/;"	f	class:WUserPostProcessing
 WUserPostProcessing	openpose_wrapper/src/openpose_wrapper_node.cpp	/^class WUserPostProcessing : public op::Worker<std::shared_ptr<std::vector<UserDatum>>>$/;"	c	file:
-_count	openpose_wrapper/src/3d_backup.cpp	/^int _count = 0;$/;"	v
+X_LEFT_POINT_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^X_LEFT_POINT_THRESHOLD = 0.65$/;"	v
+X_RIGHT_POINT_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^X_RIGHT_POINT_THRESHOLD = 0.65$/;"	v
+Y_LEFT_POINT_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^Y_LEFT_POINT_THRESHOLD = 0.9$/;"	v
+Y_LEFT_RAISE_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^Y_LEFT_RAISE_THRESHOLD = 0.9$/;"	v
+Y_RIGHT_POINT_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^Y_RIGHT_POINT_THRESHOLD = 0.9$/;"	v
+Y_RIGHT_RAISE_THRESHOLD	activity_detection/scripts/activityDetection_action.py	/^Y_RIGHT_RAISE_THRESHOLD = 0.9$/;"	v
+__init__	activity_detection/scripts/activityDetection_action.py	/^    def __init__(self, name):$/;"	m	class:ActivityDetection_Action
 _count	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int _count = 0;$/;"	v
 _count	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^int _count = 0;$/;"	v
 _count	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int _count = 0;$/;"	v
 a	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^int a;$/;"	v
+activity_detection_client	activity_detection/scripts/activityDetection_client.py	/^def activity_detection_client():$/;"	f
 angle_criticalvalue	visual_perception/include/humantracking.h	/^	std::vector<double> angle_criticalvalue;$/;"	m	class:Human_Belief
 angle_people_set	visual_perception/include/humantracking.h	/^	std::vector<double> angle_people_set;$/;"	m	class:Human_Belief
 base_pose_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::base_pose_callback(const nav_msgs::Odometry::ConstPtr& msg)$/;"	f	class:Human_Belief
 belief_pub	visual_perception/include/humantracking.h	/^	ros::Publisher belief_pub;$/;"	m	class:Human_Belief
 belief_size	visual_perception/include/humantracking.h	/^	int belief_size;$/;"	m	class:Human_Belief
-bodypartsmap	openpose_wrapper/src/3d_backup.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
 bodypartsmap	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
 bodypartsmap	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    std::map<unsigned int, std::string> bodypartsmap;$/;"	m	class:MyPublisher	file:
-boolThatUserNeedsForSomeReason	openpose_wrapper/src/3d_backup.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
 boolThatUserNeedsForSomeReason	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
 boolThatUserNeedsForSomeReason	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
 boolThatUserNeedsForSomeReason	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    bool boolThatUserNeedsForSomeReason;$/;"	m	struct:UserDatum	file:
-buf_mutex	openpose_wrapper/src/3d_backup.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
 buf_mutex	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
 buf_mutex	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
 buf_mutex	openpose_wrapper/src/openpose_wrapper_node.cpp	/^pthread_mutex_t buf_mutex = PTHREAD_MUTEX_INITIALIZER;$/;"	v
-buff_empty	openpose_wrapper/src/3d_backup.cpp	/^bool buff_empty = true;$/;"	v
 buff_empty	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^bool buff_empty = true;$/;"	v
 buff_empty	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^bool buff_empty = true;$/;"	v
 buff_empty	openpose_wrapper/src/openpose_wrapper_node.cpp	/^bool buff_empty = true;$/;"	v
-callback	openpose_wrapper/src/3d_backup.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
-callback	openpose_wrapper/src/3d_backup.cpp	/^void callback(const sensor_msgs::Image &img)$/;"	f
 callback	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
 callback	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^void callback(const sensor_msgs::Image &img)$/;"	f
 callback	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^void MyPublisher::callback(const op::Array<float> &poseKeypoints)$/;"	f	class:MyPublisher
@@ -184,11 +202,9 @@ cartesianToPolar	visual_perception/src/people_marker.cpp	/^std::vector<double> P
 check_cameraregion	visual_perception/src/visible_region.cpp	/^bool visible_manager::check_cameraregion(float x_pos,float y_pos)$/;"	f	class:visible_manager
 check_staticObs	visual_perception/src/visible_region.cpp	/^bool visible_manager::check_staticObs(float x_pos,float y_pos)$/;"	f	class:visible_manager
 client	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::ServiceClient client;$/;"	v
-cloud	openpose_wrapper/src/3d_backup.cpp	/^    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; $/;"	m	class:MyPublisher	file:
 cloud	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; $/;"	m	class:MyPublisher	file:
 cloud	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud; $/;"	m	class:MyPublisher	file:
 cloud	visual_perception/include/humantracking.h	/^	pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud;$/;"	m	class:Human_Belief
-cloud_callback	openpose_wrapper/src/3d_backup.cpp	/^void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){$/;"	f	class:MyPublisher
 cloud_callback	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){$/;"	f	class:MyPublisher
 cloud_callback	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^void MyPublisher::cloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg){$/;"	f	class:MyPublisher
 clouds	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^std::vector <pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clouds;$/;"	v
@@ -208,16 +224,13 @@ createMarker	visual_perception/src/people_marker.cpp	/^visualization_msgs::Marke
 createVisualisation	visual_perception/src/filter_people_marker.cpp	/^void filter_PeopleMarker::createVisualisation(std::vector<geometry_msgs::Pose> poses) {$/;"	f	class:filter_PeopleMarker
 createVisualisation	visual_perception/src/people_marker.cpp	/^void PeopleMarker::createVisualisation(std::vector<geometry_msgs::Pose> poses) {$/;"	f	class:PeopleMarker
 cur_yolo_people	visual_perception/include/visible_region.h	/^  std::vector< std::vector< double > > cur_yolo_people;$/;"	m	class:visible_manager
-cvMatToOpInput	openpose_wrapper/src/3d_backup.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
 cvMatToOpInput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
 cvMatToOpInput	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
 cvMatToOpInput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::CvMatToOpInput *cvMatToOpInput;$/;"	v
-cvMatToOpOutput	openpose_wrapper/src/3d_backup.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
 cvMatToOpOutput	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
 cvMatToOpOutput	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
 cvMatToOpOutput	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::CvMatToOpOutput *cvMatToOpOutput;$/;"	v
 cv_img_ptr_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        cv_bridge::CvImagePtr cv_img_ptr_;$/;"	m	class:RosImgSub	file:
-cv_ptr	openpose_wrapper/src/3d_backup.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
 cv_ptr	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
 cv_ptr	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
 cv_ptr	openpose_wrapper/src/openpose_wrapper_node.cpp	/^cv_bridge::CvImagePtr cv_ptr;$/;"	v
@@ -229,21 +242,18 @@ detect_seq	visual_perception/include/people_marker.h	/^    unsigned long detect_
 dyn_map_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::dyn_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:Human_Belief
 dynamic_belief_map	visual_perception/include/humantracking.h	/^	nav_msgs::OccupancyGrid dynamic_belief_map;$/;"	m	class:Human_Belief
 edge_leg_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::edge_leg_callback(const geometry_msgs::PoseArray::ConstPtr& msg)$/;"	f	class:Human_Belief
-eye_msg	openpose_wrapper/src/3d_backup.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
+estimation_callback	activity_detection/scripts/activityDetection_action.py	/^    def estimation_callback(self,msg):$/;"	m	class:ActivityDetection_Action
+execute_cb	activity_detection/scripts/activityDetection_action.py	/^    def execute_cb(self, goal):$/;"	m	class:ActivityDetection_Action
 eye_msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
 eye_msg	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^openpose_ros_wrapper_msgs::EyeDetection eye_msg;$/;"	v
-eye_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher eye_pub;$/;"	m	class:MyPublisher	file:
 eye_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Publisher eye_pub;$/;"	m	class:MyPublisher	file:
 eye_pub	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Publisher eye_pub;$/;"	m	class:MyPublisher	file:
-faceDetector	openpose_wrapper/src/3d_backup.cpp	/^op::FaceDetector *faceDetector;$/;"	v
 faceDetector	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
 faceDetector	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
 faceDetector	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::FaceDetector *faceDetector;$/;"	v
-faceExtractor	openpose_wrapper/src/3d_backup.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
 faceExtractor	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
 faceExtractor	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
 faceExtractor	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::FaceExtractor *faceExtractor;$/;"	v
-faceRenderer	openpose_wrapper/src/3d_backup.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
 faceRenderer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
 faceRenderer	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
 faceRenderer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::FaceRenderer *faceRenderer;$/;"	v
@@ -268,7 +278,6 @@ generate_extremity_position	visual_perception/src/people_marker.cpp	/^geometry_m
 generate_position	visual_perception/src/filter_people_marker.cpp	/^geometry_msgs::Point filter_PeopleMarker::generate_position(geometry_msgs::Point centre, double angle, double dx, double dy)$/;"	f	class:filter_PeopleMarker
 generate_position	visual_perception/src/people_marker.cpp	/^geometry_msgs::Point PeopleMarker::generate_position(geometry_msgs::Point centre, double angle, double dx, double dy)$/;"	f	class:PeopleMarker
 get3dcoordinates	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection_3d get3dcoordinates(const openpose_ros_msgs::BodypartDetection bodypart_2d , const pcl::PointCloud<pcl::PointXYZ>::Ptr  temp_cloud, const double maxx, const double minx, const double maxy, const double miny, const double maxz, const double minz, const std::string bodypart_name)$/;"	f
-getBodyPartDetectionFromArrayAndIndex	openpose_wrapper/src/3d_backup.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
 getBodyPartDetectionFromArrayAndIndex	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
 getBodyPartDetectionFromArrayAndIndex	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
 getBodyPartDetectionFromArrayAndIndex	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^openpose_ros_msgs::BodypartDetection getBodyPartDetectionFromArrayAndIndex(const op::Array<float>& array, size_t idx)$/;"	f
@@ -281,7 +290,6 @@ getCvImagePtr	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_fir
 getDistance	visual_perception/src/humantracking.cpp	/^double Human_Belief::getDistance(double _x, double _y)$/;"	f	class:Human_Belief
 getDistance_from_Vec	visual_perception/src/humantracking.cpp	/^double Human_Belief::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:Human_Belief
 getDistance_from_Vec	visual_perception/src/visible_region.cpp	/^double visible_manager::getDistance_from_Vec(std::vector<double> origin, double _x, double _y)$/;"	f	class:visible_manager
-getNANBodypart	openpose_wrapper/src/3d_backup.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
 getNANBodypart	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
 getNANBodypart	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
 getNANBodypart	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^openpose_ros_msgs::BodypartDetection getNANBodypart()$/;"	f
@@ -318,6 +326,7 @@ h_min	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^static std_msgs::Hea
 h_temp	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^static std_msgs::Header h_temp;$/;"	v	file:
 headers	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^std::vector <std_msgs::Header> headers;$/;"	v
 height	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	30;"	d	file:
+highestY	activity_detection/scripts/activityDetection_action.py	/^    def highestY(self,array):$/;"	m	class:ActivityDetection_Action
 human_belief_map	visual_perception/include/humantracking.h	/^	nav_msgs::OccupancyGrid human_belief_map;$/;"	m	class:Human_Belief
 human_boxes_array	visual_perception/include/humantracking.h	/^	visualization_msgs::MarkerArray human_boxes_array;$/;"	m	class:Human_Belief
 human_boxes_callback	visual_perception/src/filter_people_marker.cpp	/^void filter_PeopleMarker::human_boxes_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:filter_PeopleMarker
@@ -332,22 +341,17 @@ human_target_pub	visual_perception/include/humantracking.h	/^	ros::Publisher hum
 human_target_pub	visual_perception/include/visible_region.h	/^  ros::Publisher human_target_pub;$/;"	m	class:visible_manager
 human_yolo_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::human_yolo_callback(const visualization_msgs::MarkerArray::ConstPtr& msg)$/;"	f	class:visible_manager
 image_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher           image_pub;   $/;"	v
-image_skeleton_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
 image_skeleton_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
 image_skeleton_pub	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
 image_skeleton_pub	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher image_skeleton_pub;$/;"	m	class:MyPublisher	file:
 image_skeleton_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^ros::Publisher           image_skeleton_pub;$/;"	v
 image_skeleton_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^ros::Publisher           image_skeleton_pub;$/;"	v
 image_sub_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        image_transport::Subscriber image_sub_;$/;"	m	class:RosImgSub	file:
-index	openpose_wrapper/src/3d_backup.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
 index	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    int index;$/;"	m	struct:UserDatum	file:
 index	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    int index;$/;"	m	struct:UserDatum	file:
 index	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	int index;$/;"	m	struct:UserDatum	file:
 index	visual_perception/include/humantracking.h	/^	int index;$/;"	m	class:Human_Belief
 index_of_human_occ_cells_updated_recently	visual_perception/include/humantracking.h	/^	std::vector<int> index_of_human_occ_cells_updated_recently;$/;"	m	class:Human_Belief
-initializationOnThread	openpose_wrapper/src/3d_backup.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
-initializationOnThread	openpose_wrapper/src/3d_backup.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
-initializationOnThread	openpose_wrapper/src/3d_backup.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
 initializationOnThread	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserInput
 initializationOnThread	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserOutput
 initializationOnThread	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void initializationOnThread() {}$/;"	f	class:WUserPostProcessing
@@ -366,23 +370,21 @@ joint_states_callback	visual_perception/src/visible_region.cpp	/^void visible_ma
 joint_states_sub	visual_perception/include/filter_people_marker.h	/^    ros::Subscriber joint_states_sub;$/;"	m	class:filter_PeopleMarker
 joint_states_sub	visual_perception/include/people_marker.h	/^    ros::Subscriber joint_states_sub;$/;"	m	class:PeopleMarker
 keypoints_3d_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher	         keypoints_3d_pub;$/;"	v
-keypoints_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
 keypoints_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
 keypoints_pub	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Publisher keypoints_pub;$/;"	m	class:MyPublisher	file:
 keypoints_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	/^ros::Publisher           keypoints_pub;$/;"	v
 keypoints_pub	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^ros::Publisher           keypoints_pub;$/;"	v
 laser_pcl_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::laser_pcl_callback(const sensor_msgs::PointCloud2 ::ConstPtr& msg)$/;"	f	class:Human_Belief
 laser_scan_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::laser_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg)$/;"	f	class:Human_Belief
+leftArm	activity_detection/scripts/activityDetection_action.py	/^    def leftArm(self, x, y, angle, isLaying):$/;"	m	class:ActivityDetection_Action
 leg_target	visual_perception/include/humantracking.h	/^	std::vector<double> leg_target;				\/\/x,y,theta$/;"	m	class:Human_Belief
 listener	visual_perception/include/filter_people_marker.h	/^    tf::TransformListener listener;$/;"	m	class:filter_PeopleMarker
 listener	visual_perception/include/humantracking.h	/^	tf::TransformListener 	  listener;$/;"	m	class:Human_Belief
 listener	visual_perception/include/people_marker.h	/^    tf::TransformListener listener;$/;"	m	class:PeopleMarker
 listener	visual_perception/include/visible_region.h	/^  tf::TransformListener     listener;$/;"	m	class:visible_manager
-mCounter	openpose_wrapper/src/3d_backup.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
 mCounter	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
 mCounter	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
 mCounter	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    unsigned long long mCounter;$/;"	m	class:WUserInput	file:
-mImageFiles	openpose_wrapper/src/3d_backup.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
 mImageFiles	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
 mImageFiles	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
 mImageFiles	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    const std::vector<std::string> mImageFiles;$/;"	m	class:WUserInput	file:
@@ -398,7 +400,6 @@ m_updateiter	visual_perception/include/humantracking.h	/^	int m_updateiter;$/;"	
 m_viewupdateiter	visual_perception/include/humantracking.h	/^	int m_viewupdateiter;$/;"	m	class:Human_Belief
 m_yolo_idx_set	visual_perception/include/humantracking.h	/^	std::vector<int>    m_yolo_idx_set;$/;"	m	class:Human_Belief
 m_yolo_recieveiter	visual_perception/include/humantracking.h	/^	int m_yolo_recieveiter;$/;"	m	class:Human_Belief
-main	openpose_wrapper/src/3d_backup.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int main(int argc, char *argv[])$/;"	f
@@ -417,35 +418,32 @@ marker_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_v
 marker_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^ros::Publisher   marker_pub;$/;"	v
 marker_seq	visual_perception/include/filter_people_marker.h	/^    unsigned long marker_seq;$/;"	m	class:filter_PeopleMarker
 marker_seq	visual_perception/include/people_marker.h	/^    unsigned long marker_seq;$/;"	m	class:PeopleMarker
+maxDifference	activity_detection/scripts/activityDetection_action.py	/^    def maxDifference(self, array):$/;"	m	class:ActivityDetection_Action
 model_folder_location	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^std::string model_folder_location = package_path + "\/..\/openpose\/models\/";$/;"	v
-mp	openpose_wrapper/src/3d_backup.cpp	/^MyPublisher mp;$/;"	v
 mp	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^MyPublisher mp;$/;"	v
 mp	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^MyPublisher mp;$/;"	v
 mp	openpose_wrapper/src/openpose_wrapper_node.cpp	/^MyPublisher mp;$/;"	v
-msg	openpose_wrapper/src/3d_backup.cpp	/^	std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
 msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
 msg	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
 msg	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	std_msgs::Float32MultiArray msg;$/;"	m	class:MyPublisher	file:
 n_	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_visualization_node.cpp	/^  ros::NodeHandle n_; $/;"	m	class:SubscribeAndPublish	file:
 nh_	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^        ros::NodeHandle nh_;$/;"	m	class:RosImgSub	file:
 nh_	visual_perception/include/visible_region.h	/^  ros::NodeHandle nh_;$/;"	m	class:visible_manager
+nodeDifference	activity_detection/scripts/activityDetection_action.py	/^    def nodeDifference(self, array, num1, num2):$/;"	m	class:ActivityDetection_Action
 notDetectedBodyPart	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^void notDetectedBodyPart(std::string bodypart_name)$/;"	f
 num_of_detected_human	visual_perception/include/visible_region.h	/^  int num_of_detected_human;$/;"	m	class:visible_manager
 num_particles_tracker	visual_perception/src/visible_region.cpp	/^static const unsigned int num_particles_tracker      = 1000;$/;"	v	file:
 number_detected_callback	visual_perception/src/humantracking.cpp	/^void Human_Belief::number_detected_callback(const std_msgs::Int8::ConstPtr &msg){$/;"	f	class:Human_Belief
-opOutputToCvMat	openpose_wrapper/src/3d_backup.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
 opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
 opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
 opOutputToCvMat	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::OpOutputToCvMat *opOutputToCvMat;$/;"	v
 opRealTimePoseDemo	references/openpose_ros/openpose_ros_pkg/src/openpose.cpp	/^int opRealTimePoseDemo()$/;"	f
 op_people_sub	visual_perception/include/people_marker.h	/^    ros::Subscriber op_people_sub;$/;"	m	class:PeopleMarker
 openPoseROSTutorial	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^int openPoseROSTutorial()$/;"	f
-openPoseTutorialWrapper2	openpose_wrapper/src/3d_backup.cpp	/^int openPoseTutorialWrapper2()$/;"	f
 openPoseTutorialWrapper2	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
 openPoseTutorialWrapper2	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
 openPoseTutorialWrapper2	openpose_wrapper/src/openpose_wrapper_node.cpp	/^int openPoseTutorialWrapper2()$/;"	f
 openpose3d_callback	visual_perception/src/people_marker.cpp	/^void PeopleMarker::openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3d::ConstPtr& msg)$/;"	f	class:PeopleMarker
-out_msg	openpose_wrapper/src/3d_backup.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
 out_msg	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
 out_msg	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
 out_msg	openpose_wrapper/src/openpose_wrapper_node.cpp	/^cv_bridge::CvImage out_msg;$/;"	v
@@ -454,7 +452,6 @@ output_size	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cp
 pCloud	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    sensor_msgs::PointCloud2 pCloud;$/;"	m	class:MyPublisher	file:
 package_path	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_firephinx.cpp	/^std::string package_path = ros::package::getPath("openpose_ros_pkg");$/;"	v
 pc_pub	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	/^ros::Publisher           pc_pub;$/;"	v
-pcl_sub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Subscriber pcl_sub;$/;"	m	class:MyPublisher	file:
 pcl_sub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Subscriber pcl_sub;$/;"	m	class:MyPublisher	file:
 pcl_sub	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Subscriber pcl_sub;$/;"	m	class:MyPublisher	file:
 people_boxes_sub	visual_perception/include/filter_people_marker.h	/^    ros::Subscriber people_boxes_sub;$/;"	m	class:filter_PeopleMarker
@@ -464,16 +461,15 @@ people_marker_pub	visual_perception/include/people_marker.h	/^    ros::Publisher
 people_pose_pub	visual_perception/include/filter_people_marker.h	/^    ros::Publisher  people_pose_pub;$/;"	m	class:filter_PeopleMarker
 people_pose_pub	visual_perception/include/people_marker.h	/^    ros::Publisher  people_pose_pub;$/;"	m	class:PeopleMarker
 people_yolo_sub	visual_perception/include/visible_region.h	/^  ros::Subscriber people_yolo_sub;$/;"	m	class:visible_manager
+personPose	activity_detection/scripts/activityDetection_action.py	/^    def personPose(self, pose, leftLeg, rightLeg):$/;"	m	class:ActivityDetection_Action
 persons	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    openpose_ros_wrapper_msgs::Persons persons;$/;"	m	class:MyPublisher	file:
 persons	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    openpose_ros_wrapper_msgs::Persons persons;$/;"	m	class:MyPublisher	file:
 persons_3d	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    openpose_ros_wrapper_msgs::Persons3d persons_3d;$/;"	m	class:MyPublisher	file:
 persons_3d	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    openpose_ros_wrapper_msgs::Persons3d persons_3d;$/;"	m	class:MyPublisher	file:
 pointcloud_callback	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^void pointcloud_callback(const sensor_msgs::PointCloud2ConstPtr &msg)$/;"	f
-poseExtractorCaffe	openpose_wrapper/src/3d_backup.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
 poseExtractorCaffe	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
 poseExtractorCaffe	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
 poseExtractorCaffe	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::PoseExtractorCaffe *poseExtractorCaffe;$/;"	v
-poseRenderer	openpose_wrapper/src/3d_backup.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
 poseRenderer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
 poseRenderer	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
 poseRenderer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^op::PoseRenderer *poseRenderer;$/;"	v
@@ -481,19 +477,19 @@ poseRenderer	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node.cpp	
 poseRenderer	references/openpose_ros/openpose_ros_pkg/src/openpose_ros_node_3d.cpp	/^std::shared_ptr<op::PoseRenderer> poseRenderer;$/;"	v
 pose_3d_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Publisher pose_3d_pub;$/;"	m	class:MyPublisher	file:
 pose_3d_pub	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Publisher pose_3d_pub;$/;"	m	class:MyPublisher	file:
-pose_pub	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
 pose_pub	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
 pose_pub	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
 pose_pub	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher pose_pub;$/;"	m	class:MyPublisher	file:
 pre_global_pose	visual_perception/include/filter_people_marker.h	/^	std::vector<double> pre_global_pose;$/;"	m	class:filter_PeopleMarker
 pre_global_pose	visual_perception/include/people_marker.h	/^	std::vector<double> pre_global_pose;$/;"	m	class:PeopleMarker
 print_iter	visual_perception/include/humantracking.h	/^	int print_iter;$/;"	m	class:Human_Belief
+process_message	activity_detection/scripts/activityDetection_action.py	/^    def process_message(self):$/;"	m	class:ActivityDetection_Action
+process_person	activity_detection/scripts/activityDetection_action.py	/^    def process_person(self, person):$/;"	m	class:ActivityDetection_Action
 pub_iters	visual_perception/include/humantracking.h	/^	int pub_iters;$/;"	m	class:Human_Belief
 publish_cameraregion	visual_perception/src/visible_region.cpp	/^void visible_manager::publish_cameraregion()$/;"	f	class:visible_manager
 publish_headscan	visual_perception/src/humantracking.cpp	/^void Human_Belief::publish_headscan()$/;"	f	class:Human_Belief
 publish_poses	visual_perception/src/filter_people_marker.cpp	/^void filter_PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){$/;"	f	class:filter_PeopleMarker
 publish_poses	visual_perception/src/people_marker.cpp	/^void PeopleMarker:: publish_poses(std::vector<geometry_msgs::Pose> input_poses){$/;"	f	class:PeopleMarker
-publisher	openpose_wrapper/src/3d_backup.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
 publisher	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
 publisher	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
 publisher	openpose_wrapper/src/openpose_wrapper_node.cpp	/^	ros::Publisher publisher;$/;"	m	class:MyPublisher	file:
@@ -501,6 +497,8 @@ put_human_occ_map	visual_perception/src/humantracking.cpp	/^void Human_Belief::p
 put_human_occ_map_leg	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map_leg()$/;"	f	class:Human_Belief
 put_human_occ_map_yolo	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_occ_map_yolo()$/;"	f	class:Human_Belief
 put_human_surrounding_beliefmap	visual_perception/src/humantracking.cpp	/^void Human_Belief::put_human_surrounding_beliefmap(int idx)$/;"	f	class:Human_Belief
+result	activity_detection/scripts/activityDetection_client.py	/^        result = activity_detection_client()$/;"	v
+rightArm	activity_detection/scripts/activityDetection_action.py	/^    def rightArm(self, x, y, angle, isLaying):$/;"	m	class:ActivityDetection_Action
 robot_state_	visual_perception/include/visible_region.h	/^  tf::TransformListener     robot_state_;$/;"	m	class:visible_manager
 scaled_static_map_callback	visual_perception/src/visible_region.cpp	/^void visible_manager::scaled_static_map_callback(const nav_msgs::OccupancyGrid::ConstPtr& msg)$/;"	f	class:visible_manager
 scanforhuman	visual_perception/src/humantracking.cpp	/^void Human_Belief::scanforhuman(const ros::TimerEvent& event)$/;"	f	class:Human_Belief
@@ -508,6 +506,7 @@ scanmode	visual_perception/include/humantracking.h	/^	bool scanmode;$/;"	m	class
 sequencer_delay	visual_perception/src/visible_region.cpp	/^static const double       sequencer_delay            = 0.5; \/\/TODO: this is probably too big, it was 0.8$/;"	v	file:
 sequencer_internal_buffer	visual_perception/src/visible_region.cpp	/^static const unsigned int sequencer_internal_buffer  = 100;$/;"	v	file:
 sequencer_subscribe_buffer	visual_perception/src/visible_region.cpp	/^static const unsigned int sequencer_subscribe_buffer = 10;$/;"	v	file:
+server	activity_detection/scripts/activityDetection_action.py	/^    server = ActivityDetection_Action(rospy.get_name())$/;"	v	class:ActivityDetection_Action
 setHumanOccupancy	visual_perception/src/humantracking.cpp	/^void Human_Belief::setHumanOccupancy(int idx, double dyn_posx,double dyn_posy)$/;"	f	class:Human_Belief
 setNavTarget_pub	visual_perception/include/humantracking.h	/^	ros::Publisher setNavTarget_pub;$/;"	m	class:Human_Belief
 setNearestHuman	visual_perception/src/humantracking.cpp	/^void Human_Belief::setNearestHuman()$/;"	f	class:Human_Belief
@@ -541,15 +540,12 @@ visible_manager	visual_perception/src/visible_region.cpp	/^visible_manager::visi
 visiblie_idx_set	visual_perception/include/humantracking.h	/^	std::vector<int> visiblie_idx_set;$/;"	m	class:Human_Belief
 visiblie_idx_set	visual_perception/include/visible_region.h	/^  std::vector<int> visiblie_idx_set;$/;"	m	class:visible_manager
 width	references/openpose_ros/skeleton_extract_3d/src/skeleton_extract_3d_node.cpp	29;"	d	file:
-work	openpose_wrapper/src/3d_backup.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
 work	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
 work	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
 work	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void work(std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserPostProcessing
-workConsumer	openpose_wrapper/src/3d_backup.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
 workConsumer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
 workConsumer	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
 workConsumer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    void workConsumer(const std::shared_ptr<std::vector<UserDatum>>& datumsPtr)$/;"	f	class:WUserOutput
-workProducer	openpose_wrapper/src/3d_backup.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
 workProducer	openpose_wrapper/src/openpose_wrapper_3d_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
 workProducer	openpose_wrapper/src/openpose_wrapper_nico_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput
 workProducer	openpose_wrapper/src/openpose_wrapper_node.cpp	/^    std::shared_ptr<std::vector<UserDatum>> workProducer()$/;"	f	class:WUserInput

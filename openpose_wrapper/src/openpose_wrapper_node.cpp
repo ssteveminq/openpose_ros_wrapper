@@ -146,7 +146,7 @@ DEFINE_string(face_net_resolution,      "368x368",      "Multiples of 16 and squ
                                                         " detector. 320x320 usually works fine while giving a substantial speed up when multiple"
                                                         " faces on the image.");
 // OpenPose Hand
-DEFINE_bool(hand,                       false,          "Enables hand keypoint detection. It will share some parameters from the body pose, e.g."
+DEFINE_bool(hand,                       true,          "Enables hand keypoint detection. It will share some parameters from the body pose, e.g."
                                                         " `model_folder`. Analogously to `--face`, it will also slow down the performance, increase"
                                                         " the required GPU memory and its speed depends on the number of people.");
 DEFINE_string(hand_net_resolution,      "368x368",      "Multiples of 16 and squared. Analogous to `net_resolution` but applied to the hand keypoint"
@@ -156,9 +156,9 @@ DEFINE_int32(hand_scale_number,         1,              "Analogous to `scale_num
 DEFINE_double(hand_scale_range,         0.4,            "Analogous purpose than `scale_gap` but applied to the hand keypoint detector. Total range"
                                                         " between smallest and biggest scale. The scales will be centered in ratio 1. E.g. if"
                                                         " scaleRange = 0.4 and scalesNumber = 2, then there will be 2 scales, 0.8 and 1.2.");
-DEFINE_bool(hand_tracking,              false,          "Adding hand tracking might improve hand keypoints detection for webcam (if the frame rate"
+DEFINE_bool(hand_tracking,              true,          "Adding hand tracking might improve hand keypoints detection for webcam (if the frame rate"
                                                         " is high enough, i.e. >7 FPS per GPU) and video. This is not person ID tracking, it"
-                                                        " simply looks for hands in positions at which hands were located in previous frames, but"
+                                                        " simply looks for hands in pos/itions at which hands were located in previous frames, but"
                                                         " it does not guarantee the same person ID among frames");
 // OpenPose Rendering
 DEFINE_int32(part_to_show,              0,              "Prediction channel to visualize (default: 0). 0 for all the body parts, 1-18 for each body"
@@ -688,7 +688,7 @@ void MyPublisher::callback(const op::Array<float> &poseKeypoints)
 //		msg.humans.push_back(human);
 	}
 //	msg.numHuman = msg.humans.size();
-	publisher.publish(mp.msg);
+	//publisher.publish(mp.msg);
 
     //publish image
     sensor_msgs::Image ros_image;
@@ -705,7 +705,7 @@ int main(int argc, char *argv[])
 
 	ros::start();
 //	mp.publisher = nh.advertise<openpose_wrapper::OpenPose>("openpose_human_body", 1000);
-	mp.publisher = nh.advertise<std_msgs::Float32MultiArray>("openpose_human_body", 1000);
+	//mp.publisher = nh.advertise<std_msgs::Float32MultiArray>("openpose_human_body", 1000);
     mp.image_skeleton_pub = nh.advertise<sensor_msgs::Image>( "/openpose_ros/detected_poses_image", 1 );  
     mp.pose_pub = nh.advertise<openpose_ros_wrapper_msgs::Persons>("/openpose/pose", 2);
 	ros::Subscriber subscriber = nh.subscribe( FLAGS_image_dir, 1, callback);

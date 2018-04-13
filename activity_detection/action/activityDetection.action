@@ -1,0 +1,6 @@
+#goal definition
+bool start
+---
+#result definition
+string[] activities
+---
