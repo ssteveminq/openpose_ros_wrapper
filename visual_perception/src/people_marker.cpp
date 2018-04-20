@@ -104,7 +104,7 @@ void PeopleMarker::openpose3d_callback(const openpose_ros_wrapper_msgs::Persons3
       poseVector.push_back(transformPos);
     }
   
-    createVisualisation(poseVector);
+    //createVisualisation(poseVector);
     publish_poses(poseVector);
 }
 
@@ -148,7 +148,7 @@ void PeopleMarker::joint_states_callback(const sensor_msgs::JointState::ConstPtr
 
 	//ROS_INFO("Head moving : %.3lf",head_vel);
 
-    if(head_vel>0.012)
+    if(head_vel>0.007)
         IsHeadMoving=true;
     else
         IsHeadMoving=false;
